@@ -3,11 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class CatvchannelController extends Controller
 {
     public function index()
     {
-        return view('masterdata.catv_channel');
+    	$rs = DB::table('catv_channel')->get();
+        return view('masterdata.catv_channel', ['rs' => $rs]);
+    }
+
+    public function add()
+    {
+    	return view('masterdata.catv_channelbaru');
+    }
+
+    public function store(Request $request)
+    {
+    	$kode_channel 	= $request->kode_channel;
+
+    	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel]);
+
+    	// flashy()->success('Berhasil menyimpan data');
+		return redirect('masterdata/catv_channel');
     }
 }

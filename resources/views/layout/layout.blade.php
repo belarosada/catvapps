@@ -190,6 +190,10 @@
 
     <script src="{{url('assets/js/custom.min.js')}}"></script>
 
+    <!-- dataTable -->
+    <script src="{{url('assets/js/lib/datatables/datatables.min.js')}}"></script>
+    <script src="{{url('assets/js/lib/datatables/datatables-init.js')}}"></script>
+
 </body>
 
 </html>

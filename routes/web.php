@@ -18,6 +18,8 @@ Route::group(['prefix' => 'masterdata'], function () {
     Route::group(['prefix' => 'catv_channel'], function () {
 
         Route::get('/', 'CatvchannelController@index');
+        Route::get('add', 'CatvchannelController@add');
+        Route::get('store', 'CatvchannelController@store');
 
     });
 

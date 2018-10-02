@@ -6,194 +6,50 @@
     Master Data
 @endsection
 @section('link2')
-    CATV Channel
+    CATV Channel Baru
 @endsection
 @section('content')
 
-    <div class="col-lg-12">
-        <div class="card card-outline-info">
-            <div class="card-header">
-                <h4 class="m-b-0 text-white">Sample Horizontal form</h4>
-            </div>
-            <div class="card-body">
-                <form action="#" class="form-horizontal">
-                    <div class="form-body">
-                        <h3 class="box-title m-t-15">Person Info</h3>
-                        <hr class="m-t-0 m-b-40">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">First Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" placeholder="John doe">
-                                        <small class="form-control-feedback"> This is inline help </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group has-danger row">
-                                    <label class="control-label text-right col-md-3">Last Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control form-control-danger" placeholder="12n">
-                                        <small class="form-control-feedback"> This field has error. </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Gender</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select">
-                                            <option value="">Male</option>
-                                            <option value="">Female</option>
-                                        </select>
-                                        <small class="form-control-feedback"> Select your gender. </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Date of Birth</label>
-                                    <div class="col-md-9">
-                                        <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Category</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
-                                            <option value="Category 1">Category 1</option>
-                                            <option value="Category 2">Category 2</option>
-                                            <option value="Category 3">Category 5</option>
-                                            <option value="Category 4">Category 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Membership</label>
-                                    <div class="col-md-9">
-                                        <div class="radio-list">
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio3" name="radio" type="radio" checked="" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Free</span>
-                                            </label>
-                                            <label class="custom-control custom-radio">
-                                                <input id="radio4" name="radio" type="radio" class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">Paid</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-
-                        <h3 class="box-title">Address</h3>
-                        <hr class="m-t-0 m-b-40">
-
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Address 1</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Address 2</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">City</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">State</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-                        <!--/row-->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Post Code</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                            <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="control-label text-right col-md-3">Country</label>
-                                    <div class="col-md-9">
-                                        <select class="form-control custom-select">
-                                            <option>Country 1</option>
-                                            <option>Country 2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/span-->
-                        </div>
-                        <!--/row-->
-                    </div>
-                    <hr>
-                    <div class="form-actions">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="button" class="btn btn-inverse">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6"> </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+<div class="card col-md-12">
+    <div class="card-body">
+        <div class="row">
+        <!--row-->
+          <div class="col-md-12">
+              <a href="{{ url('masterdata/catv_channel/add') }}" id="btn_tambah" class="btn-sm btn-info"><span class="fa fa-plus-square"></span>&nbsp;Tambah Data</a>
+          </div>
+        </div>
+        <div class="table-responsive">
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Id</th>
+                        <th style="text-align: center;">Kode Channel</th>
+                        <th style="text-align: center;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($rs as $key => $catv)
+                    <tr>
+                        <td>{{ $catv->id }}</td>
+                        <td>{{ $catv->kode_channel }}</td>
+                        <td width="30%">
+                            <a href="" class="btn-md"><span class="fa fa-trash"></span></a>
+                            <a href="" class="btn-md"><span class="fa fa-pencil"></span></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+@push('script-footer')
+<script type="text/javascript">
+    
+</script>
+@endpush
 
 @endsection
+
+
