@@ -27,4 +27,12 @@ class CatvchannelController extends Controller
     	// flashy()->success('Berhasil menyimpan data');
 		return redirect('masterdata/catv_channel');
     }
+
+    public function delete($id)
+    {
+        DB::table('catv_channel')->where('id', $id)->delete();
+
+        // flashy()->success('Berhasil menghapus data');
+        return redirect('masterdata/catv_channel');
+    }
 }

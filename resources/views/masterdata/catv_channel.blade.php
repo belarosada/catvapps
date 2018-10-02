@@ -33,7 +33,7 @@
                         <td>{{ $catv->id }}</td>
                         <td>{{ $catv->kode_channel }}</td>
                         <td width="30%">
-                            <a href="" class="btn-md"><span class="fa fa-trash"></span></a>
+                            <a href="{{ url('masterdata/catv_channel/delete', ['id' => $catv->id]) }}" class="btn-md"><span class="fa fa-trash"></span></a>
                             <a href="" class="btn-md"><span class="fa fa-pencil"></span></a>
                         </td>
                     </tr>
