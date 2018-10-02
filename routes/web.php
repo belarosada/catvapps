@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layout.layout');
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::group(['prefix' => 'masterdata'], function () {
+
+    Route::group(['prefix' => 'catv_channel'], function () {
+
+        Route::get('/', 'CatvchannelController@index');
+
+    });
+
 });

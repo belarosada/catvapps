@@ -42,7 +42,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('index') }}">
                         <!-- Logo icon -->
                         <b><img src="{{url('assets/images/b.png')}}"  /></b>
                         <!--End Logo icon -->
@@ -88,7 +88,7 @@
                                         <li><a href="index1.html">Analytics </a></li>
                                     </ul>
                                 </li> --}}
-                                <li><a href="#">CATV Channel </a></li>
+                                <li><a href="{{ url('masterdata/catv_channel') }}">CATV Channel </a></li>
                                 <li><a href="#">Program TV </a></li>
                                 <li><a href="#">Lokasi Lapangan </a></li>
                                 <li><a href="#">Material </a></li>
@@ -118,26 +118,20 @@
         <!-- Page wrapper  -->
         <div class="page-wrapper">
             <!-- Bread crumb -->
+            <section>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Dashboard</h3> </div>
+                    <h3 class="text-primary">@yield('title')</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">@yield('link1')</a></li>
+                        <li class="breadcrumb-item active">@yield('link2')</li>
                     </ol>
                 </div>
             </div>
+        </section>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Start Page Content -->
-								<a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a>
-
-                    <!-- End PAge Content -->
-                </div>
-            </section>
 
             <section class="content">
                 <div class="container-fluid">
