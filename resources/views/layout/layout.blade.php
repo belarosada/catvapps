@@ -42,7 +42,7 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('index') }}">
                         <!-- Logo icon -->
                         <b><img src="{{url('assets/images/b.png')}}"  /></b>
                         <!--End Logo icon -->
@@ -88,7 +88,7 @@
                                         <li><a href="index1.html">Analytics </a></li>
                                     </ul>
                                 </li> --}}
-                                <li><a href="#">CATV Channel </a></li>
+                                <li><a href="{{ url('masterdata/catv_channel') }}">CATV Channel </a></li>
                                 <li><a href="#">Program TV </a></li>
                                 <li><a href="#">Lokasi Lapangan </a></li>
                                 <li><a href="#">Material </a></li>
@@ -130,14 +130,6 @@
             </div>
             <!-- End Bread crumb -->
             <!-- Container fluid  -->
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Start Page Content -->
-								<a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a>
-
-                    <!-- End PAge Content -->
-                </div>
-            </section>
 
             <section class="content">
                 <div class="container-fluid">
