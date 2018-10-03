@@ -194,6 +194,19 @@
     <script src="{{url('assets/js/lib/datatables/datatables.min.js')}}"></script>
     <script src="{{url('assets/js/lib/datatables/datatables-init.js')}}"></script>
 
+    <!-- JQuery -->
+    <script src="{{url('assets/plugins/jquery/jquery.min.js')}}"></script>
+
+    <!-- Datepicker -->
+    <script src="{{url('assets/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+
+    <!-- Dropzone -->
+    <script src="{{url('assets/plugins/dropzone/dropzone.js')}}"></script>
+
+    <!-- Sweetalert -->
+    <script src="{{url('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+
+
 </body>
 
 </html>
