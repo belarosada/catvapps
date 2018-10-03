@@ -21,6 +21,12 @@ class CatvchannelController extends Controller
 
     public function store(Request $request)
     {
+        $check  = DB::table('catv_channel')->where('kode_channel', $request->kode_channel)->first();
+
+        if (!empty($check)) {
+            return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
+        }
+
     	$kode_channel 	= $request->kode_channel;
 
     	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel]);
