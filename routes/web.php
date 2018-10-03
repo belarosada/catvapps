@@ -20,19 +20,9 @@ Route::group(['prefix' => 'masterdata'], function () {
         Route::get('/', 'CatvchannelController@index');
         Route::get('add', 'CatvchannelController@add');
         Route::get('store', 'CatvchannelController@store');
-        Route::get('edit', 'CatvchannelController@edit');
         Route::get('delete/{id}', 'CatvchannelController@delete');
         Route::get('editView/{id}', 'CatvchannelController@editView');
-
-    });
-
-    Route::group(['prefix' => 'program'], function () {
-
-        Route::get('/', 'ProgramController@index');
-        Route::get('add', 'ProgramController@add');
-        Route::get('store', 'ProgramController@store');
-        Route::get('edit', 'ProgramController@edit');
-        Route::get('delete/{id}', 'ProgramController@delete');
+        Route::get('edit', 'CatvchannelController@edit');
 
     });
 
