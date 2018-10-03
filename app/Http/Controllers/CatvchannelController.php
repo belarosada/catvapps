@@ -33,20 +33,44 @@ class CatvchannelController extends Controller
 
     	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
-        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/catv_channel');
     }
 
-    public function edit($id)
+    public function editView($id)
     {
-    	return view('masterdata.catv_channeledit');
+        $rs = DB::table('catv_channel')->where('id', $id)->first();
+    	return view('masterdata.catv_channeledit', ['rs' => $rs]);
+    }
+
+    public function edit(Request $request)
+    {
+
+        $id                     = $request->id;
+        $kode_channel           = $request->kode_channel;
+        $kode_channel_lama      = $request->kode_channel_lama;
+        $frekuensi              = $request->frekuensi;
+        $rf_level               = $request->rf_level;
+
+        if ($kode_channel_lama != $kode_channel) {
+            $check  = DB::table('catv_channel')->where('kode_channel', $kode_channel)->first();
+
+            if (!empty($check)) {
+                return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
+            }
+        } 
+
+        DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+
+        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        return redirect('masterdata/catv_channel');
     }
 
     public function delete($id)
     {
         DB::table('catv_channel')->where('id', $id)->delete();
 
-        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
         return redirect('masterdata/catv_channel');
     }
 }

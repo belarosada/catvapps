@@ -21,6 +21,8 @@ Route::group(['prefix' => 'masterdata'], function () {
         Route::get('add', 'CatvchannelController@add');
         Route::get('store', 'CatvchannelController@store');
         Route::get('delete/{id}', 'CatvchannelController@delete');
+        Route::get('editView/{id}', 'CatvchannelController@editView');
+        Route::get('edit', 'CatvchannelController@edit');
 
     });
 

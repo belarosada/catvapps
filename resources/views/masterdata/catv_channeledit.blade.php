@@ -13,28 +13,30 @@
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ url('masterdata/catv_channel/store') }}" class="form-horizontal">
+                <form action="{{ url('masterdata/catv_channel/edit') }}" class="form-horizontal">
                     <div class="form-body">
                         <h3 class="box-title m-t-15">Catv Channel</h3>
                         <hr class="m-t-0 m-b-40">
                         <div class="row">
                             <div class="col-md-12">
+                                <input type="hidden" name="id" value="{{ $rs->id }}">
+                                <input type="hidden" name="kode_channel_lama" value="{{ $rs->kode_channel }}">
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Kode Channel</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="kode_channel" class="form-control" placeholder="Kode Channel">
+                                        <input type="text" name="kode_channel" class="form-control" placeholder="Kode Channel" value="{{ $rs->kode_channel }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Frekuensi</label>
                                     <div class="col-md-8">
-                                        <input type="number" name="frekuensi" class="form-control" placeholder="Nilai Frekuensi">
+                                        <input type="number" name="frekuensi" class="form-control" placeholder="Nilai Frekuensi" value="{{ $rs->frekuensi }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">HE RF Level (dBuV)</label>
                                     <div class="col-md-8">
-                                        <input type="number" name="rf_level" class="form-control" placeholder="He RF Level">
+                                        <input type="number" name="rf_level" class="form-control" placeholder="He RF Level" value="{{ $rs->rf_level }}">
                                     </div>
                                 </div>
                             </div>
