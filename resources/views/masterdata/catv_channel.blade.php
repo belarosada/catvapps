@@ -37,8 +37,12 @@
                         <td>{{ $catv->frekuensi }}</td>
                         <td>{{ $catv->rf_level }}</td>
                         <td width="30%">
-                            <a href="{{ url('masterdata/catv_channel/delete', ['id' => $catv->id]) }}" class="btn-md"><span class="fa fa-trash"></span></a>
-                            <a href="{{ url('masterdata/catv_channel/edit', ['id' => $catv->id]) }}" class="btn-md"><span class="fa fa-pencil"></span></a>
+                            <a class="btn btn-warning btn-xs" title="Edit"  href="">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            <a class="btn btn-danger btn-xs hapusan" title="Hapus" href="{{ url('masterdata/catv_channel/delete', ['id' => $catv->id]) }}">
+                                <i class="fa fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                     @endforeach
