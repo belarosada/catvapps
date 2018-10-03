@@ -22,19 +22,19 @@
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Kode Channel</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="kode_channel" class="form-control" placeholder="Kode Channel">
+                                        <input type="text" name="kode_channel" id="kode_channel" class="form-control" placeholder="Kode Channel">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Frekuensi</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="frekuensi" class="form-control" placeholder="Nilai Frekuensi">
+                                        <input type="text" name="frekuensi" id="frekuensi" class="form-control" placeholder="Nilai Frekuensi">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">HE RF Level (dBuV)</label>
                                     <div class="col-md-8">
-                                        <input type="number" name="rf_level" class="form-control" placeholder="He RF Level">
+                                        <input type="number" name="rf_level" id="rf_level" class="form-control" placeholder="He RF Level">
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                 <div class="row">
                                     <div class="col-md-offset-3 col-md-9">
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        <button type="button" class="btn btn-inverse">Cancel</button>
+                                        <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
                                     </div>
                                 </div>
                             </div>
@@ -58,5 +58,18 @@
             </div>
         </div>
     </div>
-
+    
+    @push('scripts')
+    <script> 
+        $('#btn_cancel').click(function(){
+            $('#kode_channel').val('')
+            $('#frekuensi').val('')
+            $('#rf_level').val('')
+        })
+    </script>
+    @endpush
 @endsection
+
+
+
+
