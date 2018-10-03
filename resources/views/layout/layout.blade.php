@@ -194,9 +194,6 @@
     <script src="{{url('assets/js/lib/datatables/datatables.min.js')}}"></script>
     <script src="{{url('assets/js/lib/datatables/datatables-init.js')}}"></script>
 
-    <!-- JQuery -->
-    <script src="{{url('assets/plugins/jquery/jquery.min.js')}}"></script>
-
     <!-- Datepicker -->
     <script src="{{url('assets/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
 
