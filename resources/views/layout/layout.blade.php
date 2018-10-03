@@ -21,6 +21,7 @@
     <link href="{{url('assets/css/lib/owl.theme.default.min.cs')}}s" rel="stylesheet" />
     <link href="{{url('assets/css/helper.css')}}" rel="stylesheet">
     <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -202,6 +203,8 @@
 
     <!-- Sweetalert -->
     <script src="{{url('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    {{-- <script src="{{url('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+    @include('sweetalert::alert') --}}
 
 
 </body>
