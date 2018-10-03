@@ -15,7 +15,14 @@
             <div class="card-body">
                 <form action="{{ url('masterdata/catv_channel/store') }}" class="form-horizontal">
                     <div class="form-body">
-                        <h3 class="box-title m-t-15">Catv Channel</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h3 class="box-title m-t-15">Catv Channel</h3>
+                            </div>
+                            <div class="col-md-8">
+                                <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
+                            </div>
+                        </div>
                         <hr class="m-t-0 m-b-40">
                         <div class="row">
                             <div class="col-md-12">
@@ -58,9 +65,9 @@
             </div>
         </div>
     </div>
-    
+
     @push('scripts')
-    <script> 
+    <script>
         $('#btn_cancel').click(function(){
             $('#kode_channel').val('')
             $('#frekuensi').val('')
@@ -69,7 +76,3 @@
     </script>
     @endpush
 @endsection
-
-
-
-

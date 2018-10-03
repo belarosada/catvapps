@@ -90,7 +90,7 @@
                                     </ul>
                                 </li> --}}
                                 <li><a href="{{ url('masterdata/catv_channel') }}">CATV Channel </a></li>
-                                <li><a href="#">Program TV </a></li>
+                                <li><a href="{{ url('masterdata/program') }}">Program TV </a></li>
                                 <li><a href="#">Lokasi Lapangan </a></li>
                                 <li><a href="#">Material </a></li>
                             </ul>
