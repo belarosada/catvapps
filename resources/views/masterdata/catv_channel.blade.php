@@ -6,7 +6,7 @@
     Master Data
 @endsection
 @section('link2')
-    CATV Channel Baru
+    CATV Channel
 @endsection
 @section('content')
 
