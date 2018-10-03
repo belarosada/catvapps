@@ -16,6 +16,8 @@ class CreateCatvChannelTable extends Migration
         Schema::create('catv_channel', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode_channel');
+            $table->double('frekuensi');
+            $table->integer('rf_level');
             $table->timestamps();
         });
     }

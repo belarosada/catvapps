@@ -28,18 +28,25 @@ class CatvchannelController extends Controller
         }
 
     	$kode_channel 	= $request->kode_channel;
+        $frekuensi 	    = $request->frekuensi;
+        $rf_level 	    = $request->rf_level;
 
-    	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel]);
+    	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
-    	// flashy()->success('Berhasil menyimpan data');
+        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/catv_channel');
+    }
+
+    public function edit($id)
+    {
+    	return view('masterdata.catv_channeledit');
     }
 
     public function delete($id)
     {
         DB::table('catv_channel')->where('id', $id)->delete();
 
-        // flashy()->success('Berhasil menghapus data');
+        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
         return redirect('masterdata/catv_channel');
     }
 }

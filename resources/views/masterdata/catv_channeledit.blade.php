@@ -6,7 +6,7 @@
     Master Data
 @endsection
 @section('link2')
-    CATV Channel Baru
+    CATV Channel Ubah
 @endsection
 @section('content')
 
@@ -28,7 +28,7 @@
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Frekuensi</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="frekuensi" class="form-control" placeholder="Nilai Frekuensi">
+                                        <input type="number" name="frekuensi" class="form-control" placeholder="Nilai Frekuensi">
                                     </div>
                                 </div>
                                 <div class="form-group row">

@@ -24,6 +24,8 @@
                     <tr>
                         <th style="text-align: center;">Id</th>
                         <th style="text-align: center;">Kode Channel</th>
+                        <th style="text-align: center;">Frekuensi</th>
+                        <th style="text-align: center;">HE RF Level</th>
                         <th style="text-align: center;">Aksi</th>
                     </tr>
                 </thead>
@@ -32,9 +34,11 @@
                     <tr>
                         <td>{{ $catv->id }}</td>
                         <td>{{ $catv->kode_channel }}</td>
+                        <td>{{ $catv->frekuensi }}</td>
+                        <td>{{ $catv->rf_level }}</td>
                         <td width="30%">
                             <a href="{{ url('masterdata/catv_channel/delete', ['id' => $catv->id]) }}" class="btn-md"><span class="fa fa-trash"></span></a>
-                            <a href="" class="btn-md"><span class="fa fa-pencil"></span></a>
+                            <a href="{{ url('masterdata/catv_channel/edit', ['id' => $catv->id]) }}" class="btn-md"><span class="fa fa-pencil"></span></a>
                         </td>
                     </tr>
                     @endforeach
@@ -46,10 +50,8 @@
 
 @push('script-footer')
 <script type="text/javascript">
-    
+
 </script>
 @endpush
 
 @endsection
-
-
