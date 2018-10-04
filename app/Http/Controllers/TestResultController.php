@@ -19,41 +19,46 @@ class TestResultController extends Controller
 
     public function add(Request $request)
     {
-        $catv_channel   = DB::table('catv_channel')
-                            ->select('id', 'kode_channel')
-                            ->get();
 
+        $rs            = DB::table('catv_channel')
+                           ->select('catv_channel.id', 'kode_channel', 'frekuensi', 'rf_level', 'program')
+                           ->join('program', 'catv_channel.id', 'program.id_channel')
+                           ->get();
 
-    	return view('transaksi.test_resultbaru', ['catv_channel' => $catv_channel]);
+    	return view('transaksi.test_resultbaru', ['rs' => $rs]);
     }
 
-    public function pull(Request $request)
+    /*public function pull(Request $request)
     {
         if ($request->has('kode_channel')) {
              $kode_channel  = $request->kode_channel;
              $rs            = DB::table('catv_channel')
-                                ->select('frekuensi', 'program', 'rf_level')
+                                ->select('frekuensi', 'rf_level', 'program')
                                 ->join('program', 'catv_channel.id', 'program.id_channel')
-                                ->where('kode_channel', $kode_channel)
+                                ->where('id', $kode_channel)
                                 ->first();
-            return $rs;
+
              return response()->json($rs);
         }
-    }
+    }*/
 
     public function store(Request $request)
     {
-        $check  = DB::table('catv_channel')->where('kode_channel', $request->kode_channel)->first();
+        /*$check  = DB::table('catv_channel')->where('kode_channel', $request->kode_channel)->first();
 
         if (!empty($check)) {
             return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
+        }*/
+        $data_level     = json_decode($request->data_level, true);
+        $tanggal_tr	    = date('Y-m-d');
+
+        return count($data_level);
+
+        foreach ($data_level as $val) {
+            DB::table('test_result')
+            ->insert(['tanggal' => $tanggal_tr, 'level_tr' => $val['level'], 'id_channel' => $val['id_channel']]);
         }
-
-    	$kode_channel 	= $request->kode_channel;
-        $frekuensi 	    = $request->frekuensi;
-        $rf_level 	    = $request->rf_level;
-
-    	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+    	// DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
         // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/catv_channel');

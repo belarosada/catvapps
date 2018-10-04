@@ -206,8 +206,8 @@
 
     <!-- Sweetalert -->
     <script src="{{url('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
-    {{-- <script src="{{url('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
-    @include('sweetalert::alert') --}}
+    <script src="{{url('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+    @include('sweetalert::alert')
     @stack('scripts')
 </body>
 
