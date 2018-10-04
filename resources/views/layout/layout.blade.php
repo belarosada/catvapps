@@ -99,16 +99,17 @@
                         </li>
 
                         <li class="nav-label">Transaksi</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
+                        <li> <a class="has-arrow  " aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Tambah Data</a></li>
-                                <li><a href="#">Lihat Data</a></li>
+                                <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Test Result (A)</a></li>
+                                <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
+                                <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Falcom TX (C)</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Tambah Data</a></li>
-                                <li><a href="#">Lihat Data</a></li>
+                                <!--<li><a href="#">Tambah Data</a></li>
+                                <li><a href="#">Lihat Data</a></li>-->
                             </ul>
                         </li>
                     </ul>

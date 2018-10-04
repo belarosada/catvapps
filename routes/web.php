@@ -79,6 +79,27 @@ Route::group(['prefix' => 'masterdata'], function () {
         Route::get('delete/{id}', 'JenisMaterialController@delete');
         Route::get('editView/{id}', 'JenisMaterialController@editView');
 
+
+    });
+
+});
+
+Route::group(['prefix' => 'transaksi'], function () {
+
+    Route::group(['prefix' => 'catv_headend'], function () {
+
+        Route::group(['prefix'  =>  'test_result'], function (){
+
+            Route::get('/', 'TestResultController@index');
+            Route::get('add', 'TestResultController@add');
+            Route::get('store', 'TestResultController@store');
+            Route::get('edit', 'TestResultController@edit');
+            Route::get('delete/{id}', 'TestResultController@delete');
+            Route::get('editView/{id}', 'TestResultController@editView');
+            Route::get('pull', 'TestResultController@pull');
+
+        });
+
     });
 
 });
