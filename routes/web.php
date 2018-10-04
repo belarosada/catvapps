@@ -33,6 +33,51 @@ Route::group(['prefix' => 'masterdata'], function () {
         Route::get('store', 'ProgramController@store');
         Route::get('edit', 'ProgramController@edit');
         Route::get('delete/{id}', 'ProgramController@delete');
+        Route::get('editView/{id}', 'ProgramController@editView');
+
+    });
+
+    Route::group(['prefix' => 'lokasi_area'], function () {
+
+        Route::get('/', 'LokasiAreaController@index');
+        Route::get('add', 'LokasiAreaController@add');
+        Route::get('store', 'LokasiAreaController@store');
+        Route::get('edit', 'LokasiAreaController@edit');
+        Route::get('delete/{id}', 'LokasiAreaController@delete');
+        Route::get('editView/{id}', 'LokasiAreaController@editView');
+
+    });
+
+    Route::group(['prefix' => 'box'], function () {
+
+        Route::get('/', 'BoxController@index');
+        Route::get('add', 'BoxController@add');
+        Route::get('store', 'BoxController@store');
+        Route::get('edit', 'BoxController@edit');
+        Route::get('delete/{id}', 'BoxController@delete');
+        Route::get('editView/{id}', 'BoxController@editView');
+
+    });
+
+    Route::group(['prefix' => 'material'], function () {
+
+        Route::get('/', 'MaterialController@index');
+        Route::get('add', 'MaterialController@add');
+        Route::get('store', 'MaterialController@store');
+        Route::get('edit', 'MaterialController@edit');
+        Route::get('delete/{id}', 'MaterialController@delete');
+        Route::get('editView/{id}', 'MaterialController@editView');
+
+    });
+
+    Route::group(['prefix' => 'jenis_material'], function () {
+
+        Route::get('/', 'JenisMaterialController@index');
+        Route::get('add', 'JenisMaterialController@add');
+        Route::get('store', 'JenisMaterialController@store');
+        Route::get('edit', 'JenisMaterialController@edit');
+        Route::get('delete/{id}', 'JenisMaterialController@delete');
+        Route::get('editView/{id}', 'JenisMaterialController@editView');
 
     });
 
