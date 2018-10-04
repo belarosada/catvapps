@@ -34,7 +34,7 @@ class LokasiAreaController extends Controller
 		return redirect('masterdata/lokasi_area');
     }
 
-    public function editView($id)
+    /*public function editView($id)
     {
         $rs = DB::table('catv_channel')->where('id', $id)->first();
     	return view('masterdata.catv_channeledit', ['rs' => $rs]);
@@ -61,7 +61,7 @@ class LokasiAreaController extends Controller
 
         // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
         return redirect('masterdata/catv_channel');
-    }
+    }*/
 
     public function delete($id)
     {
