@@ -35,7 +35,7 @@
                         <td>{{ $program->kode_channel }}</td>
                         <td>{{ $program->program }}</td>
                         <td width="30%">
-                            <a class="btn btn-warning btn-xs" title="Edit"  href="">
+                            <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/program/editView', ['id' => $program->id]) }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <a class="btn btn-danger btn-xs hapusan" title="Hapus" href="{{ url('masterdata/program/delete', ['id' => $program->id]) }}">
