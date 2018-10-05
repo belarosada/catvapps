@@ -34,40 +34,38 @@ class LokasiAreaController extends Controller
 		return redirect('masterdata/lokasi_area');
     }
 
-    /*public function editView($id)
+    public function editView($id)
     {
-        $rs = DB::table('catv_channel')->where('id', $id)->first();
-    	return view('masterdata.catv_channeledit', ['rs' => $rs]);
+        $rs = DB::table('lokasi_area')->where('id', $id)->first();
+    	return view('masterdata.lokasi_areaedit', ['rs' => $rs]);
     }
 
     public function edit(Request $request)
     {
 
         $id                     = $request->id;
-        $kode_channel           = $request->kode_channel;
-        $kode_channel_lama      = $request->kode_channel_lama;
-        $frekuensi              = $request->frekuensi;
-        $rf_level               = $request->rf_level;
+        $nama_area              = $request->nama_area;
+        $nama_area_lama         = $request->nama_area_lama;
 
-        if ($kode_channel_lama != $kode_channel) {
-            $check  = DB::table('catv_channel')->where('kode_channel', $kode_channel)->first();
+        if ($nama_area_lama != $nama_area) {
+            $check  = DB::table('lokasi_area')->where('nama_area', $nama_area)->first();
 
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
         }
 
-        DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+        DB::table('lokasi_area')->where('id', $id)->update(['nama_area' => $nama_area]);
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
-        return redirect('masterdata/catv_channel');
-    }*/
+        alert()->success('Sukses', 'Berhasil Mengupdate Data')->persistent(true);
+        return redirect('masterdata/lokasi_area');
+    }
 
     public function delete($id)
     {
         DB::table('lokasi_area')->where('id', $id)->delete();
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Menghapus Data')->persistent(true);
         return redirect('masterdata/lokasi_area');
     }
 }

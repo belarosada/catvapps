@@ -6,7 +6,7 @@
     Master Data
 @endsection
 @section('link2')
-    Program Baru
+    Program Detail
 @endsection
 @section('content')
 
@@ -68,8 +68,7 @@
     @push('scripts')
     <script>
         $('#btn_cancel').click(function(){
-            $('#kode_channel').val('pilih').change()
-            $('#program').val('')
+            location.reload();
         })
     </script>
     @endpush
