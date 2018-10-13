@@ -10,7 +10,7 @@ class TestResultController extends Controller
     public function index()
     {
     	$rs = DB::table('test_result')
-                ->select('tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr')
+                ->select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr')
                 ->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
                 ->join('program', 'catv_channel.id', 'program.id_channel')
                 ->get();
@@ -52,16 +52,15 @@ class TestResultController extends Controller
         $data_level     = json_decode($request->data_level, true);
         $tanggal_tr	    = date('Y-m-d');
 
-        return count($data_level);
-
         foreach ($data_level as $val) {
             DB::table('test_result')
-            ->insert(['tanggal' => $tanggal_tr, 'level_tr' => $val['level'], 'id_channel' => $val['id_channel']]);
+            ->insert(['tanggal_tr' => $tanggal_tr, 'level_tr' => $val['level'], 'id_channel' => $val['id_channel'], 'cnr_tr' => $val['cnr']]);
         }
     	// DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
         // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
-		return redirect('masterdata/catv_channel');
+		// return redirect('masterdata/catv_channel');
+        return response()->json(["responses" => "OK"]);
     }
 
     public function editView($id)

@@ -42,7 +42,7 @@
                         <td>{{ $tr->rf_level }}</td>
                         <td>{{ $tr->level_tr }}</td>
                         <td>{{ $tr->cnr_tr }}</td>
-                        <td width="30%">
+                        <td>
                             <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/tr_channel/editView', ['id' => $tr->id]) }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
