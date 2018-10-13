@@ -6,36 +6,41 @@
     Master Data
 @endsection
 @section('link2')
-    Program Baru
+    Program Detail
 @endsection
 @section('content')
 
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ url('masterdata/program/store') }}" class="form-horizontal">
+                <form action="{{ url('masterdata/program/edit') }}" class="form-horizontal">
                     <div class="form-body">
                         <h3 class="box-title m-t-15">Program TV</h3>
                         <hr class="m-t-0 m-b-40">
                         <div class="row">
                             <div class="col-md-12">
                                 <input type="hidden" name="id" value="{{ $rs->id }}">
-                                <input type="hidden" name="kode_channel_lama" value="{{ $rs->kode_channel }}">
+                                <input type="hidden" name="program_lama" value="{{ $rs->program }}">
+                                <input type="hidden" name="kode_channel_lama" value="{{ $rs->id_channel }}">
+
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Kode Channel</label>
                                     <div class="col-md-8">
                                         <select id="kode_channel" name="kode_channel" class="form-control custom-select" style="width: 100%">
-                                            <option value="pilih" disabled selected>Pilih</option>
                                             @foreach($kode_channel as $channel)
-                                            <option value="{{$channel->id}}" data-channelname="{{$channel->kode_channel}}">{{$channel->kode_channel}}</option>
-                                            @endforeach
+                                            @if($rs->kode_channel == $channel->kode_channel)
+                                            <option value="{{$channel->id}}" selected="selected">{{$channel->kode_channel}}</option>
+                                            @else
+                                            <option value="{{$channel->id}}">{{$channel->kode_channel}}</option>
+                                            @endif
+                                            @endforeach                                            
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Nama Program</label>
                                     <div class="col-md-8">
-                                        <input type="text" id="program" name="program" class="form-control" placeholder="Nama Program">
+                                        <input type="text" id="program" name="program" class="form-control" value="{{$rs->program}}">
                                     </div>
                                 </div>
                             </div>
@@ -63,8 +68,7 @@
     @push('scripts')
     <script>
         $('#btn_cancel').click(function(){
-            $('#kode_channel').val('pilih').change()
-            $('#program').val('')
+            location.reload();
         })
     </script>
     @endpush

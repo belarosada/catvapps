@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Alert;
 
 class ProgramController extends Controller
 {
@@ -39,40 +40,55 @@ class ProgramController extends Controller
 		return redirect('masterdata/program');
     }
 
-    /*public function editView($id)
+    public function editView($id)
     {
-        $rs = DB::table('catv_channel')->where('id', $id)->first();
-    	return view('masterdata.catv_channeledit', ['rs' => $rs]);
+        $kode_channel = DB::table('catv_channel')->select('id','kode_channel')->get();
+
+        $rs = DB::table('program')
+                ->select('catv_channel.kode_channel', 'program', 'program.id', 'id_channel')
+                ->join('catv_channel', 'program.id_channel', 'catv_channel.id')
+                ->where('program.id', $id)
+                ->first();
+
+    	return view('masterdata.programedit', ['rs' => $rs, 'kode_channel' => $kode_channel]);
     }
 
     public function edit(Request $request)
     {
 
-        $id                     = $request->id;
-        $kode_channel           = $request->kode_channel;
-        $kode_channel_lama      = $request->kode_channel_lama;
-        $frekuensi              = $request->frekuensi;
-        $rf_level               = $request->rf_level;
+        $id                = $request->id;
+        $program           = $request->program;
+        $program_lama      = $request->program_lama;
+        $kode_channel      = $request->kode_channel;
+        $kode_channel_lama = $request->kode_channel_lama;
 
-        if ($kode_channel_lama != $kode_channel) {
-            $check  = DB::table('catv_channel')->where('kode_channel', $kode_channel)->first();
+        if ($program_lama != $program) {
+            $check  = DB::table('program')->where('program', $program)->first();
 
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
         }
 
-        DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+        if ($kode_channel_lama != $kode_channel) {
+            $check  = DB::table('program')->where('id_channel', $kode_channel)->first();
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
-        return redirect('masterdata/catv_channel');
-    }*/
+            if (!empty($check)) {
+                return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
+            }
+        }
+
+        DB::table('program')->where('id', $id)->update(['id_channel' => $kode_channel, 'program' => $program]);
+
+        alert()->success('Sukses', 'Berhasil Mengupdate Data')->persistent(true);
+        return redirect('masterdata/program');
+    }
 
     public function delete($id)
     {
         DB::table('program')->where('id', $id)->delete();
 
-        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Menghapus Data')->persistent(true);
         return redirect('masterdata/program');
     }
 }

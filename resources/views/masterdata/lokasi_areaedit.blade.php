@@ -6,14 +6,14 @@
     Master Data
 @endsection
 @section('link2')
-    Lokasi Area Baru
+    Lokasi Area Detail
 @endsection
 @section('content')
 
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ url('masterdata/lokasi_area/store') }}" class="form-horizontal">
+                <form action="{{ url('masterdata/lokasi_area/edit') }}" class="form-horizontal">
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -25,11 +25,14 @@
                         </div>
                         <hr class="m-t-0 m-b-40">
                         <div class="row">
+                            <input type="text" name="id" value="{{ $rs->id }}" hidden>
+                            <input type="text" name="nama_area_lama" value="{{ $rs->nama_area }}" hidden>
+
                             <div class="col-md-12">
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Nama Area</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="nama_area" id="nama_area" class="form-control" placeholder="Nama Area">
+                                        <input type="text" name="nama_area" id="nama_area" class="form-control" value="{{ $rs->nama_area }}">
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +60,7 @@
     @push('scripts')
     <script>
         $('#btn_cancel').click(function(){
-            $('#nama_area').val('')
+            location.reload();
         })
     </script>
     @endpush
