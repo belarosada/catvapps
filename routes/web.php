@@ -112,6 +112,18 @@ Route::group(['prefix' => 'transaksi'], function () {
 
         });
 
+        Route::group(['prefix'  =>  'foxcom_tx'], function (){
+
+            Route::get('/', 'FoxcomTxController@index');
+            Route::get('add', 'FoxcomTxController@add');
+            Route::post('store', 'FoxcomTxController@store');
+            Route::get('edit', 'FoxcomTxController@edit');
+            Route::get('delete/{id}', 'FoxcomTxController@delete');
+            Route::get('editView/{id}', 'FoxcomTxController@editView');
+            Route::get('pull', 'FoxcomTxController@pull');
+
+        });
+
     });
 
 });

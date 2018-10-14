@@ -6,19 +6,19 @@
     CATV HeadEnd
 @endsection
 @section('link2')
-    Falcom Tx (B)
+    Foxcom Tx (B)
 @endsection
 @section('content')
 
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ url('transaksi/catv_headend/falcom_tx/store') }}" class="form-horizontal">
+                <form action="{{ url('transaksi/catv_headend/foxcom_tx/store') }}" class="form-horizontal">
                     {{ csrf_field() }}
                     <div class="form-body">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Falcom Tx (A) </h4>
+                                <h4>Foxcom Tx (A) </h4>
                                 <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
                             </div>
                             <div class="card-body">
@@ -76,7 +76,7 @@
     <script>
     $('#btn_simpan').click(function(){
 
-        var value_falcom = [];
+        var value_foxcom = [];
 
 
         $('input[id="id_channel"]').each(function(){
@@ -92,7 +92,7 @@
                 cnr : cnr
             };
 
-            value_falcom.push(data_level);
+            value_foxcom.push(data_level);
 
         });
 
@@ -100,11 +100,11 @@
 
         $.ajax({
             type    : "post",
-            url     : "{{url('transaksi/catv_headend/falcom_tx/store')}}",
+            url     : "{{url('transaksi/catv_headend/foxcom_tx/store')}}",
             dataType: "json",
     		data: {
                 '_token'                : $('meta[name=csrf-token]').attr('content'),
-    			data_level              : JSON.stringify(value_falcom),
+    			data_level              : JSON.stringify(value_foxcom),
     		},
             success: function(data) {
                 // console.log(data);
