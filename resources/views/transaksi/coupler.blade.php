@@ -45,9 +45,9 @@
                         <td>{{ $tr->rf_level }}</td>
                         <td>{{ $tr->level_tr }}</td>
                         <td>{{ $tr->cnr_tr }}</td>
-                        <td>{{ $tr->cnr_tr }}</td>
-                        <td>{{ $tr->cnr_tr }}</td>
-                        <td>{{ $tr->cnr_tr }}</td>
+                        <td>{{ $tr->nama_box }}</td>
+                        <td>{{ $tr->jenis_material }}</td>
+                        <td>{{ $tr->inout }}</td>
                         <td>
                             <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/tr_channel/editView', ['id' => $tr->id]) }}">
                                 <i class="fa fa-pencil"></i>

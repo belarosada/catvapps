@@ -51,7 +51,7 @@
                                     <select id="inout" name="inout" class="form-control custom-select" style="width: 100%">
                                         <option value="pilih" disabled selected>Pilih</option>
                                         <option value="tap">Tap</option>
-                                        <option value="pas">Pas</option>
+                                        <option value="pass">Pass</option>
                                     </select>
                                 </div>
                             </div>

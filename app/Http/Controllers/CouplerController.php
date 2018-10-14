@@ -9,9 +9,11 @@ class CouplerController extends Controller
 {
     public function index()
     {
-    	$rs = DB::table('test_result')
-                ->select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr')
-                ->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
+    	$rs = DB::table('coupler')
+                ->select('coupler.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr', 'nama_box', 'jenis_material', 'inout')
+                ->join('catv_channel', 'coupler.id_channel', 'catv_channel.id')
+                ->join('box', 'coupler.id_box', 'box.id')
+                ->join('jenis_material', 'coupler.id_jenis_material', 'jenis_material.id')
                 ->join('program', 'catv_channel.id', 'program.id_channel')
                 ->get();
         return view('transaksi.coupler', ['rs' => $rs]);
