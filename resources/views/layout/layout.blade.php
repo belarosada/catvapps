@@ -109,7 +109,7 @@
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Coupler</a></li>
+                                <li><a href="{{ url('transaksi/catv_field/coupler') }}">Coupler</a></li>
                                 <li><a href="#">Splitter</a></li>
                                 <li><a href="#">Amplifier</a></li>
                             </ul>

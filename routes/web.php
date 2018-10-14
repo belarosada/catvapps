@@ -126,4 +126,16 @@ Route::group(['prefix' => 'transaksi'], function () {
 
     });
 
+    Route::group(['prefix' => 'catv_field'], function () {
+
+        Route::group(['prefix'  =>  'coupler'], function (){
+
+            Route::get('/', 'CouplerController@index');
+            Route::get('add', 'CouplerController@add');
+            Route::post('store', 'CouplerController@store');
+
+        });
+
+    });
+
 });
