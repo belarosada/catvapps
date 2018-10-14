@@ -11,33 +11,34 @@ class HomeController extends Controller
     {
     	$tanggal	= date('Y-m-d');
     	$a = DB::table('test_result')
-    			->select('level_tr')
+    			// ->select('catv_chaannel.kode_channel', 'level_tr')
+    			->selectRaw("(SELECT IF(level_tr >= 50 AND level_tr <= 90, 'good', 'bad')) as kondisi")
     			->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
     			->where('tanggal_tr', $tanggal)
-    			->where('kode_channel', 'S1')
-    			->first();		
-    	// return $a;
+    			// ->where('kode_channel', 'S1')
+    			->get();		
+    	return $a;
 
-    	$b = DB::table('falcom_tx')
-    			->select('level_falcom')
-    			->join('catv_channel', 'falcom_tx.id_channel', 'catv_channel.id')
-    			->where('tanggal_falcom', $tanggal)
-    			->where('kode_channel', 'S1')
-    			->first();
+    	// $b = DB::table('falcom_tx')
+    	// 		->select('level_falcom')
+    	// 		->join('catv_channel', 'falcom_tx.id_channel', 'catv_channel.id')
+    	// 		->where('tanggal_falcom', $tanggal)
+    	// 		->where('kode_channel', 'S1')
+    	// 		->first();
 
-    	if ($a->level_tr >= 50 && $a->level_tr <= 90) {
-    		if ($b->level_falcom >= 50 && $b->level_falcom <= 90) {
-    			$condition = 'good';
-    		} else {
-    			$condition = 'not good';
-    		}
-    	} else  {
-    		$condition = 'bad';
-    	}
+    	// if ($a->level_tr >= 50 && $a->level_tr <= 90) {
+    	// 	if ($b->level_falcom >= 50 && $b->level_falcom <= 90) {
+    	// 		$condition = 'good';
+    	// 	} else {
+    	// 		$condition = 'not good';
+    	// 	}
+    	// } else  {
+    	// 	$condition = 'bad';
+    	// }
 
-    	return $condition;
+    	// // return $condition;
 
-    	return $b;
+    	// // return $b;
         return view('home');
     }
 }
