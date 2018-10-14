@@ -10,7 +10,7 @@ class FoxcomTxController extends Controller
     public function index()
     {
     	$rs = DB::table('foxcom_tx')
-                ->select('foxcom_tx.id', 'tanggal_falcom', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_falcom', 'cnr_falcom')
+                ->select('foxcom_tx.id', 'tanggal_foxcom', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_foxcom', 'cnr_foxcom')
                 ->join('catv_channel', 'foxcom_tx.id_channel', 'catv_channel.id')
                 ->join('program', 'catv_channel.id', 'program.id_channel')
                 ->get();
@@ -25,7 +25,7 @@ class FoxcomTxController extends Controller
                            ->join('program', 'catv_channel.id', 'program.id_channel')
                            ->get();
 
-    	return view('transaksi.falcom_txbaru', ['rs' => $rs]);
+    	return view('transaksi.foxcom_txbaru', ['rs' => $rs]);
     }
 
     /*public function pull(Request $request)

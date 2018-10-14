@@ -9,6 +9,7 @@
     Dashboard
 @endsection
 @section('content')
+    {{-- <a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a> --}}
     <div class="col-lg-12">
         <div class="card">
             <div class="card-title">

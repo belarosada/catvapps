@@ -100,7 +100,7 @@
                         </li>
 
                         <li class="nav-label">Transaksi</li>
-                        <li> <a class="has-arrow  " aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Test Result (A)</a></li>
                                 <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
