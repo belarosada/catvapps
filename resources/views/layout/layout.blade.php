@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -103,7 +104,7 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Test Result (A)</a></li>
                                 <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
-                                <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Falcom TX (C)</a></li>
+                                <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Foxcom TX (C)</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>

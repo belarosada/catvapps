@@ -92,11 +92,23 @@ Route::group(['prefix' => 'transaksi'], function () {
 
             Route::get('/', 'TestResultController@index');
             Route::get('add', 'TestResultController@add');
-            Route::get('store', 'TestResultController@store');
+            Route::post('store', 'TestResultController@store');
             Route::get('edit', 'TestResultController@edit');
             Route::get('delete/{id}', 'TestResultController@delete');
             Route::get('editView/{id}', 'TestResultController@editView');
             Route::get('pull', 'TestResultController@pull');
+
+        });
+
+        Route::group(['prefix'  =>  'falcom_tx'], function (){
+
+            Route::get('/', 'FalcomTxController@index');
+            Route::get('add', 'FalcomTxController@add');
+            Route::post('store', 'FalcomTxController@store');
+            Route::get('edit', 'FalcomTxController@edit');
+            Route::get('delete/{id}', 'FalcomTxController@delete');
+            Route::get('editView/{id}', 'FalcomTxController@editView');
+            Route::get('pull', 'FalcomTxController@pull');
 
         });
 
