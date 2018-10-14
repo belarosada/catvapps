@@ -11,34 +11,36 @@ class HomeController extends Controller
     {
     	$tanggal	= date('Y-m-d');
     	$a = DB::table('test_result')
-    			// ->select('catv_chaannel.kode_channel', 'level_tr')
+    			->select('catv_channel.kode_channel', 'frekuensi' , 'program', 'rf_level')
     			->selectRaw("(SELECT IF(level_tr >= 50 AND level_tr <= 90, 'good', 'bad')) as kondisi")
     			->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
+                ->join('program', 'catv_channel.id', 'program.id_channel')
     			->where('tanggal_tr', $tanggal)
-    			// ->where('kode_channel', 'S1')
-    			->get();		
-    	return $a;
+                ->where('kode_channel', 'S10')
+                ->orWhere('kode_channel', 'S34')
+    			->get();
 
-    	// $b = DB::table('falcom_tx')
-    	// 		->select('level_falcom')
-    	// 		->join('catv_channel', 'falcom_tx.id_channel', 'catv_channel.id')
-    	// 		->where('tanggal_falcom', $tanggal)
-    	// 		->where('kode_channel', 'S1')
-    	// 		->first();
+        $b = DB::table('falcom_tx')
+    			->select('catv_channel.kode_channel', 'frekuensi' , 'program', 'rf_level')
+    			->selectRaw("(SELECT IF(level_falcom >= 50 AND level_falcom <= 90, 'good', 'bad')) as kondisi")
+    			->join('catv_channel', 'falcom_tx.id_channel', 'catv_channel.id')
+                ->join('program', 'catv_channel.id', 'program.id_channel')
+    			->where('tanggal_falcom', $tanggal)
+                ->where('kode_channel', 'S10')
+                ->orWhere('kode_channel', 'S34')
+    			->get();
 
-    	// if ($a->level_tr >= 50 && $a->level_tr <= 90) {
-    	// 	if ($b->level_falcom >= 50 && $b->level_falcom <= 90) {
-    	// 		$condition = 'good';
-    	// 	} else {
-    	// 		$condition = 'not good';
-    	// 	}
-    	// } else  {
-    	// 	$condition = 'bad';
-    	// }
+        $c = DB::table('foxcom_tx')
+    			->select('catv_channel.kode_channel', 'frekuensi' , 'program', 'rf_level')
+    			->selectRaw("(SELECT IF(level_foxcom >= 50 AND level_foxcom <= 90, 'good', 'bad')) as kondisi")
+    			->join('catv_channel', 'foxcom_tx.id_channel', 'catv_channel.id')
+                ->join('program', 'catv_channel.id', 'program.id_channel')
+    			->where('tanggal_foxcom', $tanggal)
+                ->where('kode_channel', 'S10')
+                ->orWhere('kode_channel', 'S34')
+    			->get();
 
-    	// // return $condition;
 
-    	// // return $b;
-        return view('home');
+        return view('home', ['a' => $a, 'b' => $b, 'c' => $c]);
     }
 }
