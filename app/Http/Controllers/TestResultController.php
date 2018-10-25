@@ -10,7 +10,7 @@ class TestResultController extends Controller
     public function index()
     {
     	$rs = DB::table('test_result')
-                ->select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr')
+                ->select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr', 'audio_level')
                 ->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
                 ->join('program', 'catv_channel.id', 'program.id_channel')
                 ->get();
@@ -54,7 +54,7 @@ class TestResultController extends Controller
 
         foreach ($data_level as $val) {
             DB::table('test_result')
-            ->insert(['tanggal_tr' => $tanggal_tr, 'level_tr' => $val['level'], 'id_channel' => $val['id_channel'], 'cnr_tr' => $val['cnr']]);
+            ->insert(['tanggal_tr' => $tanggal_tr, 'level_tr' => $val['level'], 'id_channel' => $val['id_channel'], 'cnr_tr' => $val['cnr'], 'audio_level' => $val['audio']]);
         }
     	// DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
@@ -65,14 +65,14 @@ class TestResultController extends Controller
 
     public function editView($id)
     {
-        $rs = DB::table('catv_channel')->where('id', $id)->first();
-    	return view('masterdata.catv_channeledit', ['rs' => $rs]);
+        /*$rs = DB::table('catv_channel')->where('id', $id)->first();
+    	return view('masterdata.catv_channeledit', ['rs' => $rs]);*/
     }
 
     public function edit(Request $request)
     {
 
-        $id                     = $request->id;
+        /*$id                     = $request->id;
         $kode_channel           = $request->kode_channel;
         $kode_channel_lama      = $request->kode_channel_lama;
         $frekuensi              = $request->frekuensi;
@@ -89,7 +89,7 @@ class TestResultController extends Controller
         DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
         // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
-        return redirect('masterdata/catv_channel');
+        return redirect('masterdata/catv_channel');*/
     }
 
     public function delete($id)

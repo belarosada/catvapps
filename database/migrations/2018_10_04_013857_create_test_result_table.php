@@ -19,6 +19,7 @@ class CreateTestResultTable extends Migration
             $table->string('level_tr');
             $table->string('cnr_tr');
             $table->string('tanggal_tr');
+            $table->string('audio_level');
             $table->timestamps();
         });
     }

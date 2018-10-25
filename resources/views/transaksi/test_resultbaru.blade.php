@@ -16,101 +16,6 @@
                 <form action="{{ url('transaksi/catv_headend/test_result/store') }}" class="form-horizontal">
                     {{ csrf_field() }}
                     <div class="form-body">
-                        {{-- <div class="row">
-                            <div class="col-md-4">
-                                <h3 class="box-title m-t-15">Test Result (A)</h3>
-                            </div>
-                            <div class="col-md-8">
-                                <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
-                            </div>
-                        </div>
-                        <hr class="m-t-0 m-b-40">
-                        <div class="row p-t-20">
-                            <div class="col-md-1">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">No</p>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">CATV Channel</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">Frekuensi</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">Program TV</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">HE RF Level (dBuV)</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-1">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">Level</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-1">
-                                <div class="form-group has-danger">
-                                    <p class="control-label text-info">CNR</p>
-                                </div>
-                            </div>
-
-                        @foreach($rs as $key => $tr)
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <input type="text" name="id_channel[]" id="id_channel" class="form-control text-center" value="{{ $tr->id }}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <input type="text" name="kode_channel" id="kode_channel" class="form-control text-center" value="{{ $tr->kode_channel }}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="form-group has-danger">
-                                    <input type="text" name="frekuensi" id="frekuensi" class="form-control" value="{{ $tr->frekuensi }}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group has-danger">
-                                    <input type="text" name="program" id="program" class="form-control" value="{{ $tr->program }}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <div class="form-group has-danger">
-                                    <input type="text" name="rf_level" id="rf_level" class="form-control" value="{{ $tr->rf_level }}" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-1">
-                                <div class="form-group has-danger">
-                                    <input type="text" name="level[]" id="level_{{$tr->id}}" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-md-1">
-                                <div class="form-group has-danger">
-                                    <input type="text" name="cnr[]" id="cnr_{{$tr->id}}" class="form-control">
-                                </div>
-                            </div>
-                        @endforeach
-                        </div> --}}
                         <div class="card">
                             <div class="card-title">
                                 <h4>Test Result (A) </h4>
@@ -127,7 +32,8 @@
                                                 <th >Program TV</th>
                                                 <th >HE RF Level (dBuV)</th>
                                                 <th>Level</th>
-                                                <th class="text-left">CNR</th>
+                                                <th>CNR</th>
+                                                <th class="text-left">Audio Level</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,6 +46,7 @@
                                                     <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
                                                     <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
                                                     <td><input type="text" name="cnr[]" id="cnr_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
+                                                    <td><input type="text" name="audio[]" id="audio_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -180,11 +87,14 @@
             var level = $('#'+id_level).val();
             var id_cnr = 'cnr_'+id_channel;
             var cnr = $('#'+id_cnr).val();
+            var id_audio = 'audio_'+id_channel;
+            var audio = $('#'+id_audio).val();
 
             data_level      = {
                 id_channel : id_channel,
                 level : level,
-                cnr : cnr
+                cnr : cnr,
+                audio : audio
             };
 
             value_tr.push(data_level);
