@@ -29,7 +29,7 @@
                         <th style="text-align: center;">HE RF Level</th>
                         <th style="text-align: center;">Level</th>
                         <th style="text-align: center;">CNR</th>
-                        <th style="text-align: center;">Aksi</th>
+                        {{-- <th style="text-align: center;">Aksi</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -42,14 +42,14 @@
                         <td>{{ $tr->rf_level }}</td>
                         <td>{{ $tr->level_foxcom }}</td>
                         <td>{{ $tr->cnr_foxcom }}</td>
-                        <td>
+                        <!--<td>
                             <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/tr_channel/editView', ['id' => $tr->id]) }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <a class="btn btn-danger btn-xs hapusan" title="Hapus" href="{{ url('masterdata/tr_channel/delete', ['id' => $tr->id]) }}">
                                 <i class="fa fa-trash"></i>
                             </a>
-                        </td>
+                        </td>-->
                     </tr>
                     @endforeach
                 </tbody>
