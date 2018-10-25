@@ -34,34 +34,32 @@ class MaterialController extends Controller
 		return redirect('masterdata/material');
     }
 
-    /*public function editView($id)
+    public function editView($id)
     {
-        $rs = DB::table('catv_channel')->where('id', $id)->first();
-    	return view('masterdata.catv_channeledit', ['rs' => $rs]);
+        $rs = DB::table('material')->where('id', $id)->first();
+    	return view('masterdata.materialedit', ['rs' => $rs]);
     }
 
     public function edit(Request $request)
     {
 
         $id                     = $request->id;
-        $kode_channel           = $request->kode_channel;
-        $kode_channel_lama      = $request->kode_channel_lama;
-        $frekuensi              = $request->frekuensi;
-        $rf_level               = $request->rf_level;
+        $nama_material           = $request->nama_material;
+        $nama_material_lama      = $request->nama_material_lama;
 
-        if ($kode_channel_lama != $kode_channel) {
+        /*if ($kode_channel_lama != $kode_channel) {
             $check  = DB::table('catv_channel')->where('kode_channel', $kode_channel)->first();
 
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
-        }
+        }*/
 
-        DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+        DB::table('material')->where('id', $id)->update(['nama_material' => $nama_material]);
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
-        return redirect('masterdata/catv_channel');
-    }*/
+        alert()->success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
+        return redirect('masterdata/material');
+    }
 
     public function delete($id)
     {

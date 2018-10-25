@@ -13,23 +13,19 @@
     <div class="col-lg-12">
         <div class="card card-outline-info">
             <div class="card-body">
-                <form action="{{ url('masterdata/material/store') }}" class="form-horizontal">
+                <form action="{{ url('masterdata/material/edit') }}" class="form-horizontal">
                     <div class="form-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h3 class="box-title m-t-15">Material</h3>
-                            </div>
-                            <div class="col-md-8">
-                                <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
-                            </div>
-                        </div>
+                        <h3 class="box-title m-t-15">Material</h3>
                         <hr class="m-t-0 m-b-40">
                         <div class="row">
                             <div class="col-md-12">
+                                <input type="hidden" name="id" value="{{ $rs->id }}">
+                                <input type="hidden" name="material_lama" value="{{ $rs->nama_material }}">
+
                                 <div class="form-group row">
                                     <label class="control-label text-right col-md-3">Nama Material</label>
                                     <div class="col-md-8">
-                                        <input type="text" name="nama_material" id="nama_material" class="form-control" placeholder="Nama Material">
+                                        <input type="text" id="nama_material" name="nama_material" class="form-control" value="{{$rs->nama_material}}">
                                     </div>
                                 </div>
                             </div>
