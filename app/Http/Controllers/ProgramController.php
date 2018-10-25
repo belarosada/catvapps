@@ -62,7 +62,7 @@ class ProgramController extends Controller
         $kode_channel      = $request->kode_channel;
         $kode_channel_lama = $request->kode_channel_lama;
 
-        if ($program_lama != $program) {
+        /*if ($program_lama != $program) {
             $check  = DB::table('program')->where('program', $program)->first();
 
             if (!empty($check)) {
@@ -76,11 +76,11 @@ class ProgramController extends Controller
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
-        }
+        }*/
 
         DB::table('program')->where('id', $id)->update(['id_channel' => $kode_channel, 'program' => $program]);
 
-        alert()->success('Sukses', 'Berhasil Mengupdate Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
         return redirect('masterdata/program');
     }
 

@@ -58,11 +58,11 @@ class CatvchannelController extends Controller
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
-        } 
+        }
 
         DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
-        alert()->success('Sukses', 'Berhasil Mengupdate Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
         return redirect('masterdata/catv_channel');
     }
 
