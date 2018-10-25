@@ -10,7 +10,7 @@ class BoxController extends Controller
     public function index()
     {
     	$rs = DB::table('box')
-                ->select('box.id', 'nama_area', 'nama_box')
+                ->select('box.id', 'nama_area', 'nama_box', 'ukuran_box')
                 ->join('lokasi_area', 'box.id_area', 'lokasi_area.id')
                 ->get();
         return view('masterdata.box', ['rs' => $rs]);
@@ -32,8 +32,9 @@ class BoxController extends Controller
 
     	$nama_area 	= $request->nama_area;
         $nama_box 	= $request->nama_box;
+        $ukuran_box = $request->ukuran_box;
 
-    	DB::table('box')->insert(['nama_box' => $nama_box, 'id_area' => $nama_area]);
+    	DB::table('box')->insert(['nama_box' => $nama_box, 'id_area' => $nama_area, 'ukuran_box' => $ukuran_box]);
 
         // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/box');
@@ -41,38 +42,55 @@ class BoxController extends Controller
 
     public function editView($id)
     {
-        $rs = DB::table('box')->where('id', $id)->first();
-    	return view('masterdata.boxedit', ['rs' => $rs]);
+        $lokasi_area = DB::table('lokasi_area')->select('id','nama_area')->get();
+
+        $rs = DB::table('box')
+                ->select('lokasi_area.nama_area', 'nama_box', 'ukuran_box', 'box.id', 'id_area')
+                ->join('lokasi_area', 'box.id_area', 'lokasi_area.id')
+                ->where('box.id', $id)
+                ->first();
+
+    	return view('masterdata.boxedit', ['rs' => $rs, 'lokasi_area' => $lokasi_area]);
     }
 
-    /*public function edit(Request $request)
+    public function edit(Request $request)
     {
 
-        $id                     = $request->id;
-        $kode_channel           = $request->kode_channel;
-        $kode_channel_lama      = $request->kode_channel_lama;
-        $frekuensi              = $request->frekuensi;
-        $rf_level               = $request->rf_level;
+        $id                = $request->id;
+        $box               = $request->nama_box;
+        $box_lama          = $request->nama_box_lama;
+        $nama_area         = $request->nama_area;
+        $nama_area_lama    = $request->nama_area_lama;
+        $ukuran_box               = $request->ukuran_box;
+        $ukuran_box_lama          = $request->ukuran_box_lama;
 
-        if ($kode_channel_lama != $kode_channel) {
-            $check  = DB::table('catv_channel')->where('kode_channel', $kode_channel)->first();
+        /*if ($box_lama != $box) {
+            $check  = DB::table('box')->where('nama_box', $box)->first();
 
             if (!empty($check)) {
                 return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
             }
         }
 
-        DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
+        if ($nama_area_lama != $nama_area) {
+            $check  = DB::table('box')->where('id_area', $nama_area)->first();
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+            if (!empty($check)) {
+                return response()->json( [ 'status' => 'Failed', 'message' => 'Duplicate' ] );
+            }
+        }*/
+
+        DB::table('box')->where('id', $id)->update(['id_area' => $nama_area, 'nama_box' => $box, 'ukuran_box' => $ukuran_box]);
+
+        alert()->success('Sukses', 'Berhasil Mengupdate Data')->persistent(true);
         return redirect('masterdata/box');
     }
-*/
+
     public function delete($id)
     {
         DB::table('box')->where('id', $id)->delete();
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Menghapus Data')->persistent(true);
         return redirect('masterdata/box');
     }
 }

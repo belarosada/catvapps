@@ -25,6 +25,7 @@
                         <th style="text-align: center;">Id</th>
                         <th style="text-align: center;">Lokasi Area</th>
                         <th style="text-align: center;">Nama Box</th>
+                        <th style="text-align: center;">Ukuran Box</th>
                         <th style="text-align: center;">Aksi</th>
                     </tr>
                 </thead>
@@ -34,6 +35,7 @@
                         <td>{{ $box->id }}</td>
                         <td>{{ $box->nama_area }}</td>
                         <td>{{ $box->nama_box }}</td>
+                        <td>{{ $box->ukuran_box }}</td>
                         <td width="30%">
                             <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/box/editView', ['id' => $box->id]) }}">
                                 <i class="fa fa-pencil"></i>

@@ -43,6 +43,12 @@
                                         <input type="text" name="nama_box" id="nama_box" class="form-control" placeholder="Nama Box">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="control-label text-right col-md-3">Ukuran Box</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="ukuran_box" id="ukuran_box" class="form-control" placeholder="Ukuran Box">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,6 +76,7 @@
     $('#btn_cancel').click(function(){
         $('#nama_area').val('pilih').change()
         $('#nama_box').val('')
+        $('#ukuran_box').val('')
     })
     </script>
     @endpush
