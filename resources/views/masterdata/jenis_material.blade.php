@@ -35,7 +35,7 @@
                         <td>{{ $jenis_material->nama_material }}</td>
                         <td>{{ $jenis_material->jenis_material }}</td>
                         <td width="30%">
-                            <a class="btn btn-warning btn-xs" title="Edit"  href="">
+                            <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/jenis_material/editView', ['id' => $jenis_material->id]) }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <a class="btn btn-danger btn-xs hapusan" title="Hapus" href="{{ url('masterdata/jenis_material/delete', ['id' => $jenis_material->id]) }}">

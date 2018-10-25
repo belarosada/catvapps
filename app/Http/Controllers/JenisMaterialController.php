@@ -39,16 +39,32 @@ class JenisMaterialController extends Controller
 		return redirect('masterdata/jenis_material');
     }
 
-    /*public function editView($id)
+    public function editView($id)
     {
-        $rs = DB::table('jenis_material')->where('id', $id)->first();
-    	return view('masterdata.jenis_materialedit', ['rs' => $rs]);
+        $material = DB::table('material')->select('id','nama_material')->get();
+
+        $rs = DB::table('jenis_material')
+                ->select('material.nama_material', 'jenis_material', 'jenis_material.id', 'id_material')
+                ->join('material', 'jenis_material.id_material', 'material.id')
+                ->where('jenis_material.id', $id)
+                ->first();
+
+    	return view('masterdata.jenis_materialedit', ['rs' => $rs, 'nama_material' => $material]);
     }
 
-    public function edit($id)
+    public function edit(Request $request)
     {
-    	return view('masterdata.jenis_materialedit');
-    }*/
+        $id                     = $request->id;
+        $jenis_material         = $request->jenis_material;
+        $jenis_material_lama    = $request->jenis_material_lama;
+        $nama_material          = $request->nama_material;
+        $nama_material_lama     = $request->nama_material_lama;
+
+        DB::table('jenis_material')->where('id', $id)->update(['id_material' => $nama_material, 'jenis_material' => $jenis_material]);
+
+        alert()->success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
+    	return redirect('masterdata/jenis_material');
+    }
 
     public function delete($id)
     {
