@@ -133,6 +133,7 @@ Route::group(['prefix' => 'transaksi'], function () {
             Route::get('/', 'CouplerController@index');
             Route::get('add', 'CouplerController@add');
             Route::post('store', 'CouplerController@store');
+            Route::get('pull', 'CouplerController@pull');
 
         });
 

@@ -6,7 +6,7 @@
     CATV Field
 @endsection
 @section('link2')
-    Coupler
+    Material
 @endsection
 @section('content')
 
@@ -18,16 +18,37 @@
                     <div class="form-body">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Coupler </h4>
+                                <h4>CATV Field </h4>
                                 <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
                             </div>
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-2">Area</label>
+                                <div class="col-md-8">
+                                    <select id="id_area" name="id_area" class="form-control custom-select" style="width: 100%">
+                                        <option value="pilih" disabled selected>Pilih Area</option>
+                                        @foreach($area as $value)
+                                        <option value="{{$value->id}}" data-channelname="{{$value->nama_area}}">{{$value->nama_area}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <label class="control-label text-right col-md-2">Box</label>
                                 <div class="col-md-8">
                                     <select id="id_box" name="id_box" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih</option>
-                                        @foreach($box as $bx)
-                                        <option value="{{$bx->id}}" data-channelname="{{$bx->nama_box}}">{{$bx->nama_box}}</option>
+                                        <option value="pilih" disabled selected>Pilih Box</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="control-label text-right col-md-2">Material</label>
+                                <div class="col-md-8">
+                                    <select id="id_material" name="id_material" class="form-control custom-select" style="width: 100%">
+                                        <option value="pilih" disabled selected>Pilih Material</option>
+                                        @foreach($material as $value)
+                                        <option value="{{$value->id}}" data-channelname="{{$value->nama_material}}">{{$value->nama_material}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -37,10 +58,7 @@
                                 <label class="control-label text-right col-md-2">Jenis Material</label>
                                 <div class="col-md-8">
                                     <select id="id_jenis_material" name="id_jenis_material" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih</option>
-                                        @foreach($material as $jm)
-                                        <option value="{{$jm->id}}" data-channelname="{{$jm->jenis_material}}">{{$jm->jenis_material}}</option>
-                                        @endforeach
+                                        <option value="pilih" disabled selected>Pilih Jenis Material</option>
                                     </select>
                                 </div>
                             </div>
@@ -50,6 +68,8 @@
                                 <div class="col-md-8">
                                     <select id="inout" name="inout" class="form-control custom-select" style="width: 100%">
                                         <option value="pilih" disabled selected>Pilih</option>
+                                        <option value="in">In</option>
+                                        <option value="out">Out</option>
                                         <option value="tap">Tap</option>
                                         <option value="pass">Pass</option>
                                     </select>
@@ -65,8 +85,7 @@
                                                 <th >Frekuensi</th>
                                                 <th >Program TV</th>
                                                 <th >HE RF Level (dBuV)</th>
-                                                <th>Level</th>
-                                                <th class="text-left">CNR</th>
+                                                <th class="text-left">Level</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -78,7 +97,6 @@
                                                     <td class="color-primary text-center"><input type="text" name="program" id="program" class="form-control text-center" style="width:180px" value="{{ $value->program }}" readonly></td>
                                                     <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
                                                     <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
-                                                    <td><input type="text" name="cnr[]" id="cnr_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -108,22 +126,56 @@
 
     @push('scripts')
     <script>
+    $('#id_area').on('change', function(){
+        $.ajax({
+            type    : "get",
+            url     : "{{url('transaksi/catv_field/coupler/pull')}}",
+            dataType: "json",
+            data: {
+                'id_area' : $('#id_area').val(),
+                '_token' : '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                $('#id_box').empty();
+                $('#id_box').append($('<option selected disabled/></option>').html('Pilih Box'));
+                $.each(data, function(i, item) {
+                    $('#id_box').append($('<option></option>').val(item.id).html(item.display).data('nama_box', item.nama_box));
+                });
+            }
+        });
+    });
+
+    $('#id_material').on('change', function(){
+        $.ajax({
+            type    : "get",
+            url     : "{{url('transaksi/catv_field/coupler/pull')}}",
+            dataType: "json",
+            data: {
+                'id_material' : $('#id_material').val(),
+                '_token' : '{{ csrf_token() }}'
+            },
+            success: function(data) {
+                $('#id_jenis_material').empty();
+                $('#id_jenis_material').append($('<option selected disabled/></option>').html('Pilih Jenis Material'));
+                $.each(data, function(i, item) {
+                    $('#id_jenis_material').append($('<option></option>').val(item.id).html(item.display).data('jenis_material', item.jenis_material));
+                });
+            }
+        });
+    });
+
     $('#btn_simpan').click(function(){
 
         var value_tr = [];
-
 
         $('input[id="id_channel"]').each(function(){
             var id_channel  = $(this).val();
             var id_level = 'level_'+id_channel;
             var level = $('#'+id_level).val();
-            var id_cnr = 'cnr_'+id_channel;
-            var cnr = $('#'+id_cnr).val();
 
             data_level      = {
                 id_channel : id_channel,
                 level : level,
-                cnr : cnr
             };
 
             value_tr.push(data_level);
@@ -138,7 +190,9 @@
             dataType: "json",
     		data: {
                 '_token'                : $('meta[name=csrf-token]').attr('content'),
+                id_area                 : $('#id_area').val(),
                 id_box                  : $('#id_box').val(),
+                id_material             : $('#id_material').val(),
                 id_jenis_material       : $('#id_jenis_material').val(),
                 inout                   : $('#inout').val(),
     			data_level              : JSON.stringify(value_tr),

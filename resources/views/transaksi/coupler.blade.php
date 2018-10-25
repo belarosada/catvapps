@@ -28,34 +28,36 @@
                         <th style="text-align: center;">Program TV</th>
                         <th style="text-align: center;">HE RF Level</th>
                         <th style="text-align: center;">Level</th>
-                        <th style="text-align: center;">CNR</th>
+                        <th style="text-align: center;">Area</th>
                         <th style="text-align: center;">Box</th>
+                        <th style="text-align: center;">Material</th>
                         <th style="text-align: center;">Jenis Material</th>
                         <th style="text-align: center;">In/Out</th>
-                        <th style="text-align: center;">Aksi</th>
+                        {{-- <th style="text-align: center;">Aksi</th> --}}
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($rs as $key => $tr)
                     <tr>
-                        <td>{{ $tr->tanggal_tr }}</td>
+                        <td>{{ $tr->tanggal }}</td>
                         <td>{{ $tr->kode_channel }}</td>
                         <td>{{ $tr->frekuensi }}</td>
                         <td>{{ $tr->program }}</td>
                         <td>{{ $tr->rf_level }}</td>
-                        <td>{{ $tr->level_tr }}</td>
-                        <td>{{ $tr->cnr_tr }}</td>
+                        <td>{{ $tr->level }}</td>
+                        <td>{{ $tr->nama_area }}</td>
                         <td>{{ $tr->nama_box }}</td>
+                        <td>{{ $tr->nama_material }}</td>
                         <td>{{ $tr->jenis_material }}</td>
                         <td>{{ $tr->inout }}</td>
-                        <td>
+                        <!--<td>
                             <a class="btn btn-warning btn-xs" title="Edit"  href="{{ url('masterdata/tr_channel/editView', ['id' => $tr->id]) }}">
                                 <i class="fa fa-pencil"></i>
                             </a>
                             <a class="btn btn-danger btn-xs hapusan" title="Hapus" href="{{ url('masterdata/tr_channel/delete', ['id' => $tr->id]) }}">
                                 <i class="fa fa-trash"></i>
                             </a>
-                        </td>
+                        </td>-->
                     </tr>
                     @endforeach
                 </tbody>
