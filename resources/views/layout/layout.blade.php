@@ -102,17 +102,15 @@
                         <li class="nav-label">Transaksi</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Test Result (A)</a></li>
+                                <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Main Splitter (A)</a></li>
                                 <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
                                 <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Foxcom TX (C)</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>
-                            <ul aria-expanded="false" class="collapse">
+                        <li> <a class="has-arrow  " href="{{ url('transaksi/catv_field/coupler') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>
+                            <!--<ul aria-expanded="false" class="collapse">
                                 <li><a href="{{ url('transaksi/catv_field/coupler') }}">Coupler</a></li>
-                                <li><a href="#">Splitter</a></li>
-                                <li><a href="#">Amplifier</a></li>
-                            </ul>
+                            </ul>-->
                         </li>
                     </ul>
                 </nav>
