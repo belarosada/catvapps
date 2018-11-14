@@ -6,7 +6,7 @@
     CATV Field
 @endsection
 @section('link2')
-    Material
+    Sistem Distribusi
 @endsection
 @section('content')
 

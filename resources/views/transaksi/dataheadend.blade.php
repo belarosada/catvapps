@@ -1,19 +1,19 @@
 @extends('layout.layout')
 @section('title')
-    Dashboard
+    Data
 @endsection
 @section('link1')
-    Home
+    Data
 @endsection
 @section('link2')
-    Dashboard
+    Headend
 @endsection
 @section('content')
-    <a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a>
-    {{-- <div class="col-lg-12">
+    {{-- <a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a> --}}
+    <div class="col-lg-12">
         <div class="card">
             <div class="card-title">
-                <h4>CATV HeadEnd Test Result Performance </h4>
+                <h4>CATV Headend Main Splitter Performance </h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -55,7 +55,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-title">
-                <h4>CATV HeadEnd Falcom Tx Performance </h4>
+                <h4>CATV Headend Falcom Tx Performance </h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -97,7 +97,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-title">
-                <h4>CATV HeadEnd Foxcom Tx Performance </h4>
+                <h4>CATV Headend Foxcom Tx Performance </h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -134,5 +134,5 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection
