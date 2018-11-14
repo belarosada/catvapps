@@ -13,6 +13,16 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 
+Route::group(['prefix' => 'data'], function () {
+
+    Route::group(['prefix'  =>  'headend'], function (){
+
+        Route::get('/', 'DataHeadendController@index');
+
+    });
+
+});
+
 Route::group(['prefix' => 'masterdata'], function () {
 
     Route::group(['prefix' => 'catv_channel'], function () {
@@ -128,7 +138,7 @@ Route::group(['prefix' => 'transaksi'], function () {
 
     Route::group(['prefix' => 'catv_field'], function () {
 
-        Route::group(['prefix'  =>  'coupler'], function (){
+        Route::group(['prefix'  =>  'field'], function (){
 
             Route::get('/', 'CouplerController@index');
             Route::get('add', 'CouplerController@add');
@@ -136,6 +146,20 @@ Route::group(['prefix' => 'transaksi'], function () {
             Route::get('pull', 'CouplerController@pull');
 
         });
+
+    });
+
+    Route::group(['prefix' => 'gmaps'], function () {
+
+        Route::get('/', 'GmapsController@index');
+        /*Route::group(['prefix'  =>  'coupler'], function (){
+
+            Route::get('/', 'CouplerController@index');
+            Route::get('add', 'CouplerController@add');
+            Route::post('store', 'CouplerController@store');
+            Route::get('pull', 'CouplerController@pull');
+
+        });*/
 
     });
 

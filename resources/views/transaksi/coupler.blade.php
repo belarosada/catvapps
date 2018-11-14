@@ -6,7 +6,7 @@
     CATV Field
 @endsection
 @section('link2')
-    Coupler
+    Sistem Distribusi
 @endsection
 @section('content')
 
@@ -15,7 +15,7 @@
         <div class="row">
         <!--row-->
           <div class="col-md-12">
-              <a href="{{ url('transaksi/catv_field/coupler/add') }}" id="btn_tambah" class="btn-sm btn-info"><span class="fa fa-plus-square"></span>&nbsp;Tambah Data</a>
+              <a href="{{ url('transaksi/catv_field/field/add') }}" id="btn_tambah" class="btn-sm btn-info"><span class="fa fa-plus-square"></span>&nbsp;Tambah Data</a>
           </div>
         </div>
         <div class="table-responsive">
