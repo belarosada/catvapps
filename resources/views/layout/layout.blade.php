@@ -107,11 +107,8 @@
                                 <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Foxcom TX (C)</a></li>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="{{ url('transaksi/catv_field/coupler') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a>
-                            <!--<ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ url('transaksi/catv_field/coupler') }}">Coupler</a></li>
-                            </ul>-->
-                        </li>
+                        <li> <a class="has-arrow  " href="{{ url('transaksi/catv_field/field') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a> </li>
+                        <li> <a class="has-arrow  " href="{{ url('transaksi/gmaps') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">Testing Maps</span></a> </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -207,6 +204,13 @@
     <!-- Sweetalert -->
     <script src="{{url('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
     <script src="{{url('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+
+    <!-- Gmaps -->
+    {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script> --}}
+    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script>
+    {{-- <script type="text/javascript" src="{{url('assets/plugins/gmaps/jquery.googlemap.js')}}"></script> --}}
+    <script type="text/javascript" src="{{url('assets/plugins/maplacejs/maplace.js')}}"></script>
+
     @include('sweetalert::alert')
     @stack('scripts')
 </body>
