@@ -10,18 +10,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/images/favicon-.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon-.png')}}">
     <title>Aplikasi Laporan CATV HeadEnd dan Field</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{url('assets/css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
 
-    <link href="{{url('assets/css/lib/calendar2/semantic.ui.min.css')}}" rel="stylesheet">
-    <link href="{{url('assets/css/lib/calendar2/pignose.calendar.min.css')}}" rel="stylesheet">
-    <link href="{{url('assets/css/lib/owl.carousel.min.css')}}" rel="stylesheet" />
-    <link href="{{url('assets/css/lib/owl.theme.default.min.cs')}}s" rel="stylesheet" />
-    <link href="{{url('assets/css/helper.css')}}" rel="stylesheet">
-    <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/lib/calendar2/semantic.ui.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/lib/calendar2/pignose.calendar.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/lib/owl.carousel.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/lib/owl.theme.default.min.cs')}}s" rel="stylesheet" />
+    <link href="{{asset('assets/css/helper.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
@@ -46,10 +46,10 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="{{ route('index') }}">
                         <!-- Logo icon -->
-                        <b><img src="{{url('assets/images/b.png')}}"  /></b>
+                        <b><img src="{{asset('assets/images/b.png')}}"  /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="{{url('assets/images/a.png')}}"  /></span>
+                        <span><img src="{{asset('assets/images/a.png')}}"  /></span>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -60,7 +60,7 @@
                     <ul class="navbar-nav my-lg-0">
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{url('assets/images/users/1.png')}}" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/users/1.png')}}" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
                                     <li><a href="#"><i class="ti-user"></i> Profile</a></li>
@@ -155,61 +155,61 @@
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
-    <script src="{{url('assets/js/lib/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{url('assets/js/lib/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{url('assets/js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/bootstrap/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{url('assets/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="{{url('assets/js/sidebarmenu.js')}}"></script>
+    <script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
     <!--stickey kit -->
-    <script src="{{url('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.j')}}s"></script>
+    <script src="{{asset('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.j')}}s"></script>
     <!--Custom JavaScript -->
 
 
     <!-- Amchart -->
-     <script src="{{url('assets/js/lib/morris-chart/raphael-min.js')}}"></script>
-    <script src="{{url('assets/js/lib/morris-chart/morris.js')}}"></script>
-    <script src="{{url('assets/js/lib/morris-chart/dashboard1-init.js')}}"></script>
+     <script src="{{asset('assets/js/lib/morris-chart/raphael-min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/morris-chart/morris.js')}}"></script>
+    <script src="{{asset('assets/js/lib/morris-chart/dashboard1-init.js')}}"></script>
 
 
-	<script src="{{url('assets/js/lib/calendar-2/moment.latest.min.js')}}"></script>
+	<script src="{{asset('assets/js/lib/calendar-2/moment.latest.min.js')}}"></script>
     <!-- scripit init-->
-    <script src="{{url('assets/js/lib/calendar-2/semantic.ui.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/calendar-2/semantic.ui.min.js')}}"></script>
     <!-- scripit init-->
-    <script src="{{url('assets/js/lib/calendar-2/prism.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/calendar-2/prism.min.js')}}"></script>
     <!-- scripit init-->
-    <script src="{{url('assets/js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
     <!-- scripit init-->
-    <script src="{{url('assets/js/lib/calendar-2/pignose.init.js')}}"></script>
+    <script src="{{asset('assets/js/lib/calendar-2/pignose.init.js')}}"></script>
 
-    <script src="{{url('assets/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
-    <script src="{{url('assets/js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
-    <script src="{{url('assets/js/scripts.js')}}"></script>
+    <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
+    <script src="{{asset('assets/js/scripts.js')}}"></script>
     <!-- scripit init-->
 
-    <script src="{{url('assets/js/custom.min.js')}}"></script>
+    <script src="{{asset('assets/js/custom.min.js')}}"></script>
 
     <!-- dataTable -->
-    <script src="{{url('assets/js/lib/datatables/datatables.min.js')}}"></script>
-    <script src="{{url('assets/js/lib/datatables/datatables-init.js')}}"></script>
+    <script src="{{asset('assets/js/lib/datatables/datatables.min.js')}}"></script>
+    <script src="{{asset('assets/js/lib/datatables/datatables-init.js')}}"></script>
 
     <!-- Datepicker -->
-    <script src="{{url('assets/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+    <script src="{{asset('assets/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
 
     <!-- Dropzone -->
-    <script src="{{url('assets/plugins/dropzone/dropzone.js')}}"></script>
+    <script src="{{asset('assets/plugins/dropzone/dropzone.js')}}"></script>
 
     <!-- Sweetalert -->
-    <script src="{{url('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
-    <script src="{{url('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+    <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+    <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
 
     <!-- Gmaps -->
     {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script> --}}
     <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script>
-    {{-- <script type="text/javascript" src="{{url('assets/plugins/gmaps/jquery.googlemap.js')}}"></script> --}}
-    <script type="text/javascript" src="{{url('assets/plugins/maplacejs/maplace.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{asset('assets/plugins/gmaps/jquery.googlemap.js')}}"></script> --}}
+    <script type="text/javascript" src="{{asset('assets/plugins/maplacejs/maplace.js')}}"></script>
 
     @include('sweetalert::alert')
     @stack('scripts')
