@@ -10,119 +10,113 @@
 @endsection
 @section('content')
 
-    <div class="col-lg-12">
-        <div class="card card-outline-info">
-            <div class="card-body">
-                <form action="{{ url('transaksi/catv_field/coupler/store') }}" class="form-horizontal">
-                    {{ csrf_field() }}
-                    <div class="form-body">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>CATV Field </h4>
-                                <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
-                            </div>
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-2">Area</label>
-                                <div class="col-md-8">
-                                    <select id="id_area" name="id_area" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih Area</option>
-                                        @foreach($area as $value)
-                                        <option value="{{$value->id}}" data-channelname="{{$value->nama_area}}">{{$value->nama_area}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-2">Box</label>
-                                <div class="col-md-8">
-                                    <select id="id_box" name="id_box" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih Box</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-2">Material</label>
-                                <div class="col-md-8">
-                                    <select id="id_material" name="id_material" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih Material</option>
-                                        @foreach($material as $value)
-                                        <option value="{{$value->id}}" data-channelname="{{$value->nama_material}}">{{$value->nama_material}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-2">Jenis Material</label>
-                                <div class="col-md-8">
-                                    <select id="id_jenis_material" name="id_jenis_material" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih Jenis Material</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="control-label text-right col-md-2">In/Out</label>
-                                <div class="col-md-8">
-                                    <select id="inout" name="inout" class="form-control custom-select" style="width: 100%">
-                                        <option value="pilih" disabled selected>Pilih</option>
-                                        <option value="in">In</option>
-                                        <option value="out">Out</option>
-                                        <option value="tap">Tap</option>
-                                        <option value="pass">Pass</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th >No</th>
-                                                <th >CATV Channel</th>
-                                                <th >Frekuensi</th>
-                                                <th >Program TV</th>
-                                                <th >HE RF Level (dBuV)</th>
-                                                <th class="text-left">Level</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($rs as $key => $value)
-                                                <tr>
-                                                    <th class="text-center" scope="row"><input type="text" name="id_channel[]" id="id_channel" class="form-control text-center" style="width:50px" value="{{ $value->id }}" readonly></th>
-                                                    <td class="text-center"><input type="text" name="kode_channel" id="kode_channel" class="form-control text-center" style="width:130px" value="{{ $value->kode_channel }}" readonly></td>
-                                                    <td class="text-center"><input type="text" name="frekuensi" id="frekuensi" class="form-control text-center" style="width:100px" value="{{ $value->frekuensi }}" readonly></td>
-                                                    <td class="color-primary text-center"><input type="text" name="program" id="program" class="form-control text-center" style="width:180px" value="{{ $value->program }}" readonly></td>
-                                                    <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
-                                                    <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+    <form action="{{ url('transaksi/catv_field/coupler/store') }}" class="form-horizontal">
+        {{ csrf_field() }}
+        <div class="form-body">
+            <div class="card">
+                <div class="card-title">
+                    <h4>CATV Field </h4>
+                    <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-2">Area</label>
+                    <div class="col-md-8">
+                        <select id="id_area" name="id_area" class="form-control custom-select" style="width: 100%">
+                            <option value="pilih" disabled selected>Pilih Area</option>
+                            @foreach($area as $value)
+                                <option value="{{$value->id}}" data-channelname="{{$value->nama_area}}">{{$value->nama_area}}</option>
+                            @endforeach
+                        </select>
                     </div>
-                    <hr>
-                    <div class="form-actions">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button type="button" id="btn_simpan" class="btn btn-success">Submit</button>
-                                        <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6"> </div>
-                        </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-2">Box</label>
+                    <div class="col-md-8">
+                        <select id="id_box" name="id_box" class="form-control custom-select" style="width: 100%">
+                            <option value="pilih" disabled selected>Pilih Box</option>
+                        </select>
                     </div>
-                </form>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-2">Material</label>
+                    <div class="col-md-8">
+                        <select id="id_material" name="id_material" class="form-control custom-select" style="width: 100%">
+                            <option value="pilih" disabled selected>Pilih Material</option>
+                            @foreach($material as $value)
+                                <option value="{{$value->id}}" data-channelname="{{$value->nama_material}}">{{$value->nama_material}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-2">Jenis Material</label>
+                    <div class="col-md-8">
+                        <select id="id_jenis_material" name="id_jenis_material" class="form-control custom-select" style="width: 100%">
+                            <option value="pilih" disabled selected>Pilih Jenis Material</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label text-right col-md-2">In/Out</label>
+                    <div class="col-md-8">
+                        <select id="inout" name="inout" class="form-control custom-select" style="width: 100%">
+                            <option value="pilih" disabled selected>Pilih</option>
+                            <option value="in">In</option>
+                            <option value="out">Out</option>
+                            <option value="tap">Tap</option>
+                            <option value="pass">Pass</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th >No</th>
+                                    <th >CATV Channel</th>
+                                    <th >Frekuensi</th>
+                                    <th >Program TV</th>
+                                    <th >HE RF Level (dBuV)</th>
+                                    <th class="text-left">Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rs as $key => $value)
+                                    <tr>
+                                        <th class="text-center" scope="row"><input type="text" name="id_channel[]" id="id_channel" class="form-control text-center" style="width:50px" value="{{ $value->id }}" readonly></th>
+                                        <td class="text-center"><input type="text" name="kode_channel" id="kode_channel" class="form-control text-center" style="width:130px" value="{{ $value->kode_channel }}" readonly></td>
+                                        <td class="text-center"><input type="text" name="frekuensi" id="frekuensi" class="form-control text-center" style="width:100px" value="{{ $value->frekuensi }}" readonly></td>
+                                        <td class="color-primary text-center"><input type="text" name="program" id="program" class="form-control text-center" style="width:180px" value="{{ $value->program }}" readonly></td>
+                                        <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
+                                        <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <hr>
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="button" id="btn_simpan" class="btn btn-success">Submit</button>
+                            <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"> </div>
+            </div>
+        </div>
+    </form>
 
     @push('scripts')
     <script>

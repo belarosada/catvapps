@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CatvchannelController extends Controller
 {
@@ -33,7 +33,7 @@ class CatvchannelController extends Controller
 
     	DB::table('catv_channel')->insert(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
-        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        Alert::success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/catv_channel');
     }
 
@@ -62,7 +62,7 @@ class CatvchannelController extends Controller
 
         DB::table('catv_channel')->where('id', $id)->update(['kode_channel' => $kode_channel, 'frekuensi' => $frekuensi, 'rf_level' => $rf_level]);
 
-        alert()->success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
+        Alert::success('Sukses', 'Berhasil Mengubah Data')->persistent(true);
         return redirect('masterdata/catv_channel');
     }
 

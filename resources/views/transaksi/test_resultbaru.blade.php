@@ -8,71 +8,66 @@
 @section('link2')
     Test Result (A)
 @endsection
+@section('link3')
+    <h4>Test Result (A) </h4>
+@endsection
+@section('link4')
+    <button type="button" onclick="history.back()" class="btn-sm bg-cyan pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
+@endsection
 @section('content')
-
-    <div class="col-lg-12">
-        <div class="card card-outline-info">
-            <div class="card-body">
-                <form action="{{ url('transaksi/catv_headend/test_result/store') }}" class="form-horizontal">
-                    {{ csrf_field() }}
-                    <div class="form-body">
-                        <div class="card">
-                            <div class="card-title">
-                                <h4>Test Result (A) </h4>
-                                <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th >No</th>
-                                                <th >CATV Channel</th>
-                                                <th >Frekuensi</th>
-                                                <th >Program TV</th>
-                                                <th >HE RF Level (dBuV)</th>
-                                                <th>Level</th>
-                                                <th>CNR</th>
-                                                <th class="text-left">Audio Level</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($rs as $key => $value)
-                                                <tr>
-                                                    <th class="text-center" scope="row"><input type="text" name="id_channel[]" id="id_channel" class="form-control text-center" style="width:50px" value="{{ $value->id }}" readonly></th>
-                                                    <td class="text-center"><input type="text" name="kode_channel" id="kode_channel" class="form-control text-center" style="width:130px" value="{{ $value->kode_channel }}" readonly></td>
-                                                    <td class="text-center"><input type="text" name="frekuensi" id="frekuensi" class="form-control text-center" style="width:100px" value="{{ $value->frekuensi }}" readonly></td>
-                                                    <td class="color-primary text-center"><input type="text" name="program" id="program" class="form-control text-center" style="width:180px" value="{{ $value->program }}" readonly></td>
-                                                    <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
-                                                    <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
-                                                    <td><input type="text" name="cnr[]" id="cnr_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
-                                                    <td><input type="text" name="audio[]" id="audio_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <form action="{{ url('transaksi/catv_headend/test_result/store') }}" class="form-horizontal">
+        <div class="form-body">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th >No</th>
+                                    <th >CATV Channel</th>
+                                    <th >Frekuensi</th>
+                                    <th >Program TV</th>
+                                    <th >HE RF Level (dBuV)</th>
+                                    <th>Level</th>
+                                    <th>CNR</th>
+                                    <th class="text-left">Audio Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rs as $key => $value)
+                                    <tr>
+                                        <th class="text-center" scope="row"><input type="text" name="id_channel[]" id="id_channel" class="form-control text-center" style="width:50px" value="{{ $value->id }}" readonly></th>
+                                        <td class="text-center"><input type="text" name="kode_channel" id="kode_channel" class="form-control text-center" style="width:130px" value="{{ $value->kode_channel }}" readonly></td>
+                                        <td class="text-center"><input type="text" name="frekuensi" id="frekuensi" class="form-control text-center" style="width:100px" value="{{ $value->frekuensi }}" readonly></td>
+                                        <td class="color-primary text-center"><input type="text" name="program" id="program" class="form-control text-center" style="width:180px" value="{{ $value->program }}" readonly></td>
+                                        <td class="text-center"><input type="text" name="rf_level" id="rf_level" class="form-control text-center" style="width:130px" value="{{ $value->rf_level }}" readonly></td>
+                                        <td><input type="text" name="level[]" id="level_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
+                                        <td><input type="text" name="cnr[]" id="cnr_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
+                                        <td><input type="text" name="audio[]" id="audio_{{$value->id}}" class="form-control text-center" style="width:50px"></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <hr>
-                    <div class="form-actions">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button type="button" id="btn_simpan" class="btn btn-success">Submit</button>
-                                        <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6"> </div>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+        <hr>
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="button" id="btn_simpan" class="btn btn-success">Submit</button>
+                            <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"> </div>
+            </div>
+        </div>
+    </form>
 
     @push('scripts')
     <script>

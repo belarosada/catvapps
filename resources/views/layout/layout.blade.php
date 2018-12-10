@@ -1,218 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon-.png')}}">
-    <title>Aplikasi Laporan CATV HeadEnd dan Field</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('assets/css/lib/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Custom CSS -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Datasheet CATV Apps</title>
+    <!-- Favicon-->
+    <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
 
-    <link href="{{asset('assets/css/lib/calendar2/semantic.ui.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/lib/calendar2/pignose.calendar.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/css/lib/owl.carousel.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/css/lib/owl.theme.default.min.cs')}}s" rel="stylesheet" />
-    <link href="{{asset('assets/css/helper.css')}}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="{{asset('assets/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="{{asset('assets/plugins/node-waves/waves.css')}}" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="{{asset('assets/plugins/animate-css/animate.css')}}" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="{{asset('assets/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
+
+    <!-- Custom Css -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="{{asset('assets/css/themes/all-themes.css')}}" rel="stylesheet" />
+
+    <link href="{{ asset('assets/plugins/datatables/datatables.css') }}" rel="stylesheet">
+
     <link href="{{ asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
 </head>
 
-<body class="fix-header fix-sidebar">
-    <!-- Preloader - style you can find in spinners.css -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-    </div>
-    <!-- Main wrapper  -->
-    <div id="main-wrapper">
-        <!-- header header  -->
-        <div class="header">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <!-- Logo -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ route('index') }}">
-                        <!-- Logo icon -->
-                        <b><img src="{{asset('assets/images/b.png')}}"  /></b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span><img src="{{asset('assets/images/a.png')}}"  /></span>
-                    </a>
-                </div>
-                <!-- End Logo -->
-                <div class="navbar-collapse">
-                    <!-- toggle and nav items -->
-                    <ul class="navbar-nav mr-auto mt-md-0"> </ul>
-                    <!-- User profile and search -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- Profile -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/users/1.png')}}" alt="user" class="profile-pic" /></a>
-                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
-                                <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-        <!-- End header header -->
-        <!-- Left Sidebar  -->
-        <div class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        <li class="nav-label">Master</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-database "></i><span class="hide-menu">Master Data </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                {{-- <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
-                                    <ul aria-expanded="false" class="collapse">
-                                        <li><a href="index.html">Ecommerce </a></li>
-                                        <li><a href="index1.html">Analytics </a></li>
-                                    </ul>
-                                </li> --}}
-                                <li><a href="{{ url('masterdata/catv_channel') }}">CATV Channel </a></li>
-                                <li><a href="{{ url('masterdata/program') }}">Program TV </a></li>
-                                <li><a href="{{ url('masterdata/lokasi_area') }}">Lokasi Area </a></li>
-                                <li><a href="{{ url('masterdata/box') }}">Box </a></li>
-                                <li><a href="{{ url('masterdata/material') }}">Material </a></li>
-                                <li><a href="{{ url('masterdata/jenis_material') }}">Jenis Material </a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-label">Transaksi</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-desktop"></i><span class="hide-menu">CATV HEADEND</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Main Splitter (A)</a></li>
-                                <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
-                                <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Foxcom TX (C)</a></li>
-                            </ul>
-                        </li>
-                        <li> <a class="has-arrow  " href="{{ url('transaksi/catv_field/field') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">CATV FIELD</span></a> </li>
-                        <li> <a class="has-arrow  " href="{{ url('transaksi/gmaps') }}" aria-expanded="false"><i class="fa fa-map"></i><span class="hide-menu">Testing Maps</span></a> </li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
-            <!-- End Sidebar scroll-->
-        </div>
-        <!-- End Left Sidebar  -->
-        <!-- Page wrapper  -->
-        <div class="page-wrapper">
-            <!-- Bread crumb -->
-            <section>
-            <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">@yield('title')</h3> </div>
-                <div class="col-md-7 align-self-center">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">@yield('link1')</a></li>
-                        <li class="breadcrumb-item active">@yield('link2')</li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-            <!-- End Bread crumb -->
-            <!-- Container fluid  -->
-
-            <section class="content">
-                <div class="container-fluid">
-                    <!-- Start Page Content -->
-
-                    <div class="row bg-white m-l-0 m-r-0 box-shadow ">
-                        @yield('content')
+<body class="theme-cyan">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
                     </div>
-
-                    <!-- End PAge Content -->
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
                 </div>
-            </section>
-
-            <!-- End Container fluid  -->
-            <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved.</footer>
-            <!-- End footer -->
+            </div>
+            <p>Please wait...</p>
         </div>
-        <!-- End Page wrapper  -->
     </div>
-    <!-- End Wrapper -->
-    <!-- All Jquery -->
-    <script src="{{asset('assets/js/lib/jquery/jquery.min.js')}}"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{asset('assets/js/lib/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
-    <!--Menu sidebar -->
-    <script src="{{asset('assets/js/sidebarmenu.js')}}"></script>
-    <!--stickey kit -->
-    <script src="{{asset('assets/js/lib/sticky-kit-master/dist/sticky-kit.min.j')}}s"></script>
-    <!--Custom JavaScript -->
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="{{asset('assets/images/user.png')}}" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrator</div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="">
+                        <a href="{{ route('index') }}">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">storage</i>
+                            <span>Master Data</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a href="{{ url('masterdata/catv_channel') }}">CATV Channel </a></li>
+                            <li><a href="{{ url('masterdata/program') }}">Program TV </a></li>
+                            <li><a href="{{ url('masterdata/lokasi_area') }}">Lokasi Area </a></li>
+                            <li><a href="{{ url('masterdata/box') }}">Box </a></li>
+                            <li><a href="{{ url('masterdata/material') }}">Material </a></li>
+                            <li><a href="{{ url('masterdata/jenis_material') }}">Jenis Material </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>DataSheet HeadEnd</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li><a href="{{ url('transaksi/catv_headend/test_result') }}">Main Splitter (A)</a></li>
+                            <li><a href="{{ url('transaksi/catv_headend/falcom_tx') }}">Falcom TX (B)</a></li>
+                            <li><a href="{{ url('transaksi/catv_headend/foxcom_tx') }}">Foxcom TX (C)</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="{{ url('transaksi/catv_field/field') }}" class="toggled waves-effect waves-block">
+                            <i class="material-icons">assignment</i>
+                            <span>Field</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ url('transaksi/gmaps') }}" class="toggled waves-effect waves-block">
+                            <i class="material-icons">place</i>
+                            <span>Maps</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2018 <a href="javascript:void(0);">All rights reserved</a>.
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
 
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row clearfix ">
+                    <ol class="breadcrumb breadcrumb-bg-cyan ">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">@yield('title')</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">@yield('link1')</a></li>
+                        <li class="active">@yield('link2')</li>
+                    </ol>
+                    {{-- <div class="col-xs-12 col-sm-6">
+                        <h2>@yield('title')</h2>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 align-right">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">@yield('link1')</a></li>
+                            <li class="breadcrumb-item active">@yield('link2')</li>
+                        </ol>
+                    </div> --}}
+                </div>
+            </div>
 
-    <!-- Amchart -->
-     <script src="{{asset('assets/js/lib/morris-chart/raphael-min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/morris-chart/morris.js')}}"></script>
-    <script src="{{asset('assets/js/lib/morris-chart/dashboard1-init.js')}}"></script>
+            <!-- Content -->
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 col-sm-6">
+                                    <h2>@yield('link3')</h2>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 align-right">
+                                    <div>
+                                        <span class="m-r-10 font-12">@yield('link4')</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="body">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+</section>
 
+<!-- Jquery Core Js -->
+<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
 
-	<script src="{{asset('assets/js/lib/calendar-2/moment.latest.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{asset('assets/js/lib/calendar-2/semantic.ui.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{asset('assets/js/lib/calendar-2/prism.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{asset('assets/js/lib/calendar-2/pignose.calendar.min.js')}}"></script>
-    <!-- scripit init-->
-    <script src="{{asset('assets/js/lib/calendar-2/pignose.init.js')}}"></script>
+<!-- Bootstrap Core Js -->
+<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.js')}}"></script>
 
-    <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/owl-carousel/owl.carousel-init.js')}}"></script>
-    <script src="{{asset('assets/js/scripts.js')}}"></script>
-    <!-- scripit init-->
+<!-- Select Plugin Js -->
+<script src="{{asset('assets/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
 
-    <script src="{{asset('assets/js/custom.min.js')}}"></script>
+<!-- Slimscroll Plugin Js -->
+<script src="{{asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 
-    <!-- dataTable -->
-    <script src="{{asset('assets/js/lib/datatables/datatables.min.js')}}"></script>
-    <script src="{{asset('assets/js/lib/datatables/datatables-init.js')}}"></script>
+<!-- Waves Effect Plugin Js -->
+<script src="{{asset('assets/plugins/node-waves/waves.js')}}"></script>
 
-    <!-- Datepicker -->
-    <script src="{{asset('assets/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+<!-- Jquery CountTo Plugin Js -->
+<script src="{{asset('assets/plugins/jquery-countto/jquery.countTo.js')}}"></script>
 
-    <!-- Dropzone -->
-    <script src="{{asset('assets/plugins/dropzone/dropzone.js')}}"></script>
+<!-- Morris Plugin Js -->
+<script src="{{asset('assets/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('assets/plugins/morrisjs/morris.js')}}"></script>
 
-    <!-- Sweetalert -->
-    <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+<!-- ChartJs -->
+<script src="{{asset('assets/plugins/chartjs/Chart.bundle.js')}}"></script>
 
-    <!-- Gmaps -->
-    {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script> --}}
-    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script>
-    {{-- <script type="text/javascript" src="{{asset('assets/plugins/gmaps/jquery.googlemap.js')}}"></script> --}}
-    <script type="text/javascript" src="{{asset('assets/plugins/maplacejs/maplace.js')}}"></script>
+<!-- Sparkline Chart Plugin Js -->
+<script src="{{asset('assets/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
 
-    @include('sweetalert::alert')
-    @stack('scripts')
+<!-- Custom Js -->
+<script src="{{asset('assets/js/admin.js')}}"></script>
+
+<!-- Demo Js -->
+<script src="{{asset('assets/js/demo.js')}}"></script>
+
+<!-- dataTable -->
+<script src="{{asset('assets/plugins/datatables/datatables.min.js')}}"></script>
+<script src="{{asset('assets/plugins/datatables/datatables.js')}}"></script>
+
+<!-- Sweetalert -->
+<script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
+<script src="{{asset('assets/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
+
+@include('sweetalert::alert')
+@stack('scripts')
 </body>
 
 </html>
