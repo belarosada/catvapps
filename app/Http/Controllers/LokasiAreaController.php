@@ -30,7 +30,7 @@ class LokasiAreaController extends Controller
 
     	DB::table('lokasi_area')->insert(['nama_area' => $nama_area]);
 
-        // alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
+        alert()->success('Sukses', 'Berhasil Menyimpan Data')->persistent(true);
 		return redirect('masterdata/lokasi_area');
     }
 
