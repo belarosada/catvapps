@@ -6,7 +6,7 @@
     CATV HeadEnd
 @endsection
 @section('link2')
-    Test Result
+    Main Splitter (A) 
 @endsection
 @section('link3')
     <div class="col-md-12">

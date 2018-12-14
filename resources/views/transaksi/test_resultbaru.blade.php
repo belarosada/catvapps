@@ -6,10 +6,10 @@
     CATV HeadEnd
 @endsection
 @section('link2')
-    Test Result (A)
+    Baru
 @endsection
 @section('link3')
-    <h4>Test Result (A) </h4>
+    <h4>Main Splitter (A) </h4>
 @endsection
 @section('link4')
     <button type="button" onclick="history.back()" class="btn-sm bg-cyan pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
@@ -58,9 +58,9 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="row">
-                        <div class="col-md-offset-3 col-md-9">
+                        <div class="col-md-offset-1">
                             <button type="button" id="btn_simpan" class="btn btn-success">Submit</button>
-                            <button type="button" id="btn_cancel" class="btn btn-inverse">Cancel</button>
+                            <button type="button" id="btn_cancel" class="btn bg-orange">Cancel</button>
                         </div>
                     </div>
                 </div>

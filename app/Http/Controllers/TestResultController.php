@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TestResult;
 use DB;
 
 class TestResultController extends Controller
 {
     public function index()
     {
-    	$rs = DB::table('test_result')
-                ->select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr', 'audio_level')
-                ->join('catv_channel', 'test_result.id_channel', 'catv_channel.id')
-                ->join('program', 'catv_channel.id', 'program.id_channel')
+    	$rs = TestResult::select('test_result.id', 'tanggal_tr', 'kode_channel', 'frekuensi', 'program', 'rf_level', 'level_tr', 'cnr_tr', 'audio_level')
+                ->join('catv_channel', 'test_result.id_channel', '=', 'catv_channel.id')
+                ->join('program', 'catv_channel.id', '=' ,'program.id_channel')
                 ->get();
         return view('transaksi.test_result', ['rs' => $rs]);
     }
