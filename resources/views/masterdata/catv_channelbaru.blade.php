@@ -6,7 +6,7 @@
     CATV Channel
 @endsection
 @section('link2')
-    CATV Channel Baru
+    Baru
 @endsection
 @section('link3')
     <div class="">

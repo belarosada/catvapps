@@ -6,7 +6,7 @@
     CATV Channel
 @endsection
 @section('link2')
-    List CATV Channel
+    List
 @endsection
 @section('link3')
     <div class="">
