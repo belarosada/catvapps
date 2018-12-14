@@ -25,6 +25,12 @@
     <!-- Morris Chart Css-->
     <link href="{{asset('assets/plugins/morrisjs/morris.css')}}" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css-->
+    <link href="{{asset('assets/plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
+
+    <!-- sweetalert2 Css-->
+    <link href="{{asset('assets/plugins/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
@@ -35,6 +41,7 @@
 
     <link href="{{ asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
 </head>
 
 <body class="theme-cyan">
@@ -232,6 +239,11 @@
 <!-- Sweetalert -->
 <script src="{{asset('assets/plugins/sweetalert/sweetalert.min.js')}}"></script>
 <script src="{{asset('assets/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
+
+<!-- Gmaps -->
+{{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script> --}}
+<script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyCH9jhowu7WmOVsJ_naXXUDjjThv9tIJec"></script>
+<script type="text/javascript" src="{{asset('assets/plugins/maplacejs/maplace.js')}}"></script>
 
 @include('sweetalert::alert')
 @stack('scripts')
