@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 
-<div id="gmap" style="width: 1063px; height: 400px"></div>
+<div id="gmap" style="width: 965px; height: 365px"></div>
 <div id="gmap-dropdown"></div>
 <div id="controls"></div>
 
