@@ -6,18 +6,23 @@
     CATV Field
 @endsection
 @section('link2')
-    Sistem Distribusi
+    Baru
+@endsection
+@section('link3')
+    <div class="">
+        <h4>Sistem Distribusi </h4>
+    </div>
+@endsection
+@section('link4')
+    <div >
+        <button type="button" onclick="history.back()" class="btn-sm bg-cyan btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
+    </div>
 @endsection
 @section('content')
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <form action="{{ url('transaksi/catv_field/coupler/store') }}" class="form-horizontal">
-        {{ csrf_field() }}
         <div class="form-body">
-            <div class="card">
-                <div class="card-title">
-                    <h4>CATV Field </h4>
-                    <button type="button" onclick="history.back()" class="btn-sm btn-success btn-outline pull-right" style="margin-right: 5px"><i class="fa fa-backward"></i>&nbsp;Kembali</button>
-                </div>
                 <div class="form-group row">
                     <label class="control-label text-right col-md-2">Area</label>
                     <div class="col-md-8">
@@ -33,7 +38,7 @@
                 <div class="form-group row">
                     <label class="control-label text-right col-md-2">Box</label>
                     <div class="col-md-8">
-                        <select id="id_box" name="id_box" class="form-control custom-select" style="width: 100%">
+                        <select id="id_box" name="id_box" class="form-control" style="width: 100%">
                             <option value="pilih" disabled selected>Pilih Box</option>
                         </select>
                     </div>
@@ -72,6 +77,8 @@
                         </select>
                     </div>
                 </div>
+
+            <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
@@ -120,29 +127,33 @@
 
     @push('scripts')
     <script>
-    $('#id_area').on('change', function(){
-        $.ajax({
-            type    : "get",
-            url     : "{{url('transaksi/catv_field/coupler/pull')}}",
-            dataType: "json",
-            data: {
-                'id_area' : $('#id_area').val(),
-                '_token' : '{{ csrf_token() }}'
-            },
-            success: function(data) {
-                $('#id_box').empty();
-                $('#id_box').append($('<option selected disabled/></option>').html('Pilih Box'));
-                $.each(data, function(i, item) {
-                    $('#id_box').append($('<option></option>').val(item.id).html(item.display).data('nama_box', item.nama_box));
-                });
-            }
+    $(document).ready( function () {
+        $('select').selectpicker();
+        $('#id_area').on('change', function(){
+            $.ajax({
+                type    : "get",
+                url     : "{{url('transaksi/catv_field/field/pull')}}",
+                dataType: "json",
+                data: {
+                    'id_area' : $('#id_area').val(),
+                    '_token' : '{{ csrf_token() }}'
+                },
+                success: function(data) {
+                    $('#id_box').empty();
+                    $('#id_box').append($('<option selected disabled/></option>').html('Pilih Box'));
+                    $.each(data, function(i, item) {
+                        $('#id_box').append($('<option></option>').val(item.id).html(item.display).data('nama_box', item.nama_box));
+                    });
+                }
+            });
         });
-    });
+    } );
+
 
     $('#id_material').on('change', function(){
         $.ajax({
             type    : "get",
-            url     : "{{url('transaksi/catv_field/coupler/pull')}}",
+            url     : "{{url('transaksi/catv_field/field/pull')}}",
             dataType: "json",
             data: {
                 'id_material' : $('#id_material').val(),
@@ -180,7 +191,7 @@
 
         $.ajax({
             type    : "post",
-            url     : "{{url('transaksi/catv_field/coupler/store')}}",
+            url     : "{{url('transaksi/catv_field/field/store')}}",
             dataType: "json",
     		data: {
                 '_token'                : $('meta[name=csrf-token]').attr('content'),
