@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Datasheet CATV Apps</title>
     <!-- Favicon-->
-    <link rel="icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/images/logoo.png')}}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -71,7 +71,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a href="{{ route('index') }}" ><span><img src="{{asset('assets/images/logoo.png')}}" height="55" width="55"/></span></a>
             </div>
         </div>
     </nav>
@@ -93,7 +93,7 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="">
+                    <li >
                         <a href="{{ route('index') }}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
@@ -127,7 +127,7 @@
                     <li class="">
                         <a href="{{ url('transaksi/catv_field/field') }}" class="toggled waves-effect waves-block">
                             <i class="material-icons">assignment</i>
-                            <span>Field</span>
+                            <span>DataSheet Field</span>
                         </a>
                     </li>
                     <li class="">
