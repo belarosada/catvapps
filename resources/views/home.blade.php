@@ -9,5 +9,14 @@
     Dashboard
 @endsection
 @section('content')
-            <a href="#"><img alt="..." src="{{url('assets/images/background.jpg')}}" class="center"></a>
+    <div align="center">
+        <img src="{{url('assets/images/logoo.png')}}" width="23%">
+        <hr>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h2><b> PEMETAAN & DIGITALISASI LAPORAN CATV </b></h2>
+                <h1>PT Badak NGL</h1>
+            </div>
+        </div>
+    </div>
 @endsection
